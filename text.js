@@ -1,0 +1,13 @@
+  export const checkStatus = 'ตรวจสอบสถานะใบสมัคร' 
+  export const applicationNo = 'ใบสมัครเลขที่'
+  export const productName = 'ชื่อสินเชื่อ'
+  export const productGroup = 'ประเภทสินเชื่อ'
+  export const repayType = 'ประเภทการผ่อนชำระ'
+  export const statusApplication = 'สถานะใบสมัคร'
+  export const candidateName = 'ชื่อผู้สมัคร'
+  export const creditLimit = 'วงเงินที่อนุมัต'
+  export const getApplication = 'บริษัทได้รับใบสมัครเรียบร้อยแล้ว'
+  export const checkApplication = 'อยู่ระหว่างการตรวจสอบข้อมูลและเอกสาร' 
+  export const pendingApplication = 'อยู่ระหว่างพิจารณาสินเชื่อ'  
+  export const approvedApplication = 'ได้รับการอนุมัติสินเชื่อเรียบร้อยแล้ว'
+
