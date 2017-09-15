@@ -4,16 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.5",
+    "express": "^4.15.4",
+    "griddle-react": "^1.0.0",
     "next": "^3.2.1",
+    "next-redux-saga": "^1.0.1",
+    "next-redux-wrapper": "^1.3.4",
+    "nodemon": "^1.12.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.15.6",
+    "redux-ui": "^0.1.1"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "2.13.2"
   }
 }

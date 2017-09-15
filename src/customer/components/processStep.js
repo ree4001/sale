@@ -4,19 +4,16 @@ import {
   checkApplication,
   pendingApplication,
   approvedApplication,
-} from '../text'
+} from '../../../text'
 
 const ProcessStep = () => (
   <div className="container_progressbar">
     <Head>
       <link href="/static/styles.css" rel="stylesheet" />
     </Head>
-    <div>
-      <p> Status </p>
-    </div>
     <ul className="progressbar">
-      <li className="active"> {getApplication} </li>
-      <li className="active"> {checkApplication} </li> 
+      <li className="finish"> {getApplication} </li>
+      <li className="finish"> {checkApplication} </li> 
       <li className="wait"> {pendingApplication} </li>
       <li className="wait"> {approvedApplication} </li>
     </ul>

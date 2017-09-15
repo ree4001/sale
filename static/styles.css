@@ -8,11 +8,57 @@ body {
     margin: 0px;
 }
 
-hr.color {
-    height: 10px;
-    border: 0;
-    position: relative;
-	box-shadow: 0 10px 10px -10px #0070BC inset;
+@media (min-width:1200px) {
+  .header {
+    height: 100px;
+    background-color: gray;
+    border-radius: 15px;
+  }    
+  .content {
+    border: solid pink; 
+    margin-top: 15px;
+  }  
+  .left-panel {
+    border: solid blue;
+    float: left;
+    width: 20%;
+    height: 615px;
+  }
+  .nevbar {
+    background-color: #4775A3;
+    height: 615px;
+    border-radius: 15px;
+  }
+  .right-section {
+    background-color: #E6B800;
+    height: 615px;
+    border-radius: 15px;
+    width: 78%;
+    float: right;
+  }
+  .content::after{
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+.wrapper{
+    border: solid ;
+    padding: 15px;
+}
+
+.left-panel {
+    width: 20%
+}
+
+.container {
+    width: 970px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.col-1 {
+    width: 25%;
+    float: left;
 }
 
 .inline{
@@ -23,23 +69,58 @@ hr.color {
     height: 100%;
     width: 60%;
 }
-
-table {
+.center table {
+    border-radius: 3px;
     border-collapse: collapse;
     margin: 0 auto;
+    font-size: 12px
 }
-th {
+.center th {
     border: 2pt solid #166EAD;
     background-color: #166EAD;
     padding: 10px;
-    color: #FFFFFF
+    color: #FFFFFF;
+    border-radius: 3px
 }
-td {
+.center td {
     border: 2pt solid #166EAD;
     padding: 10px;
     color: #166EAD;
     text-align: center;
 }
+
+/* --------------  test griddle  -----------------------*/
+
+
+.center1 table {
+    border-radius: 3px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 12px
+}
+.center1 th {
+    border: 2pt solid #166EAD;
+    background-color: #166EAD;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 3px
+}
+
+.center1 td {
+    border: 2pt solid #166EAD;
+    padding: 10px;
+    color: #166EAD;
+    text-align: center;
+}
+
+.center1 {
+    align-content: center;
+    width: 70%;
+    height:100%;
+    float: right;
+}
+
+/* --------------  test griddle  -----------------------*/
 
 .topbar {
     border-bottom: 2px solid;
@@ -53,13 +134,17 @@ td {
     align-content: center;
     width:100%;
     height:100%;
-    margin-top: 60px;
+    margin-top: 100px;
+    float: left;
+    z-index: -1;
 }
 
+
+/*----------------------- progressbar ---------------------*/
 .container_progressbar {
     width: 100%;
-    padding-top:230px; 
-    padding-left: 30px;
+    padding-top:300px; 
+    margin: 0px;
 }
 .progressbar {
     counter-reset: step;
@@ -97,7 +182,7 @@ td {
 .progressbar li:first-child:after {
     content: none;
 }
-.progressbar li.active {
+.progressbar li.finish {
     color: #166EAD;
 }
 .progressbar li.wait:before {
@@ -106,7 +191,7 @@ td {
 .position li.wait + li:after {
     background-color: #ddd;
 }
-.progressbar li.active:before {
+.progressbar li.finish:before {
     border-color: #166EAD;
 }
 .progressbar li.error:before {
@@ -118,6 +203,88 @@ td {
 .progressbar li.nexterror + li:after {
     background-color: red;
 }
-.progressbar li.active + li:after {
+.progressbar li.finish + li:after {
     background-color: #166EAD;
+}
+
+/*----------------------- progressbar ---------------------*/
+
+
+.login-hide {
+    float: right;
+    display: none;
+}
+.login{
+    float: right;
+}
+.login button{
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: #166EAD;
+    border: 1px solid #166EAD;
+    border-radius: 5px;
+    margin-top: 20px;    
+}
+.login button:hover{
+    border-color: #166EAD;
+    background-color: white;
+    color: #166EAD
+}
+#left-section {
+    height: 800 px;
+    float: left;
+    clear: both;
+}
+
+.salemenu li{
+    list-style-type: none;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 2px solid #166EAD;
+    color: #166EAD;
+}
+.salemenu li:hover{
+    background-color: #166EAD;
+    color: white
+}
+.salemenu li.active{
+    background-color: #166EAD;
+    color: white  
+}
+.salemenu  {
+    width: 180px;
+    text-align: center;
+    float: left
+}
+.salemenu a:link{
+    text-decoration: none;
+}
+
+.statusmenu {
+    float: left; 
+}
+.statusmenu li {
+    list-style-type: none;
+    float: left;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    color: #166EAD;
+}
+
+.statusmenu li:hover{
+    border-bottom: 2px solid #166EAD;
+}
+.statusmenu li.is-active{
+    border-bottom: 2px solid #2E76A8;
+}
+
+
+.date {
+    padding: 50px;
+    margin: 30px;
+}
+.date label{
+    color: #166EAD;
 }

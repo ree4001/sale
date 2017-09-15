@@ -1,11 +1,16 @@
-import Head from 'next/head'
-import TitleBar from '../components/titleBar'
-import IndexStatus from '../components/indexStatus'
+import React, { Component } from 'react'
+import { withReduxSaga } from '../store'
+import IndexStatus from '../src/customer/components/checkStatus'
+import {
+  saleLogin,
+  checkStatus,
+  lederLogin,
+} from '../status'
 
-const Index = () => (
-      <div>
-          <IndexStatus/>
-      </div>
-)
+class Index extends Component { 
+  render() {
+    return  <IndexStatus status={checkStatus}/>
+  }
+}
 
-export default Index
+export default withReduxSaga(Index)

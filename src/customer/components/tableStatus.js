@@ -6,7 +6,7 @@ import {
   candidateName,
   repayType,
   creditLimit
-} from '../text'
+} from '../../../text'
 
 const TableStatus = () => (
   <div className="center">
