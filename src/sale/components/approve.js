@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react'
 import enhancedWithRowData from '../hoc/enhancedWithRowData'
-import SetFormatMoney from '../hoc/SetFormatMoney'  
+import SetFormatMoney from '../hoc/SetFormatMoney'
 import ChangeDate from '../hoc/ChangeDate'
 import {
   applicationNo,
@@ -14,17 +14,16 @@ import {
   productName
 } from '../../../text'
 
-
-class ApplicationList extends Component {
+class Approve extends Component {
   componentDidMount() {
     const { fetchApp } = this.props
-    fetchApp('all')
+    fetchApp('transferred')
   }
   render() {
     const { application } = this.props
     // console.log( application ,'application')
     return (
-      <div className="right-content">
+      <div>
         <Griddle data={application}>
           <RowDefinition>
             <ColumnDefinition
@@ -44,9 +43,9 @@ class ApplicationList extends Component {
             />
             <ColumnDefinition id="status" title={statusApplication} />
             <ColumnDefinition
-            id="createdDate"
-            title='วันที่สร้าง'
-            customComponent={enhancedWithRowData(ChangeDate('createdDate'))}
+              id="createdDate"
+              title='วันที่สร้าง'
+              customComponent={enhancedWithRowData(ChangeDate('createdDate'))}
             />
           </RowDefinition>
         </Griddle>
@@ -56,4 +55,4 @@ class ApplicationList extends Component {
 }
 
 
-export default ApplicationList
+export default Approve

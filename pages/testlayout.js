@@ -12,8 +12,11 @@ const Layout = () => (
         </div>
       </div>
       <div className="right-section">
+        <div className="right-header"> </div>
+        <div className="right-content"> </div>
       </div>
-    </div>  
+    </div>
+    <div className="footer"> </div>   
   </div>
 )
 

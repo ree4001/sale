@@ -17,7 +17,7 @@
   export const LASTNAME = 'นามสกุล'
 
   // Application status
-  export const ALL = 'ทั้งหมด'
+  export const ALL = 'ALL'
   export const FILLFORM = 'กรอกใบสมัคร'
   export const WAIT_VERIFY = 'ตรวจหลักฐาน'
   export const WAIT_ANALYST = 'วิเคราะห์สินเชื่อ'
@@ -26,3 +26,10 @@
   export const WAIT_CONFIRM = 'รอยืนยันวงเงิน'
   export const WAIT_TRANSFER = 'รอโอนเงิน'
   export const TRANSFERRED = 'โอนเงินแล้ว'
+
+  // sale ststus
+  export const PENDING = 'Pending'
+  export const REJECT = 'Reject'
+  export const CANCEL = 'Cancel'
+  export const APPROVE = 'Approve'
+  export const INCOMPLETE = 'Incomplete' 

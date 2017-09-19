@@ -9,10 +9,13 @@ import {
 export function* fetchApp (action) {
   try {
     // console.log('action.payload', action.payload)
-    // console.log(`${API_SERVER}/Applications?filte={"where":{"and":[{"status":"${action.payload}"}]}}`)
-    const json = yield call(getJSON, `${API_SERVER}/api/Applications?filter={"where":{"and":[{"status":"${action.payload}"}]}}`)
+    let filter = ''
+    if (action.payload !== 'all') { filter = `Applications?filter={"where":{"and":[{"status":"${action.payload}"}]}}`}
+    else { filter = 'Applications' }
+    const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
+    // const json = yield call(getJSON, `${API_SERVER}/api/Applications?filter={"where":{"and":[{"status":"${action.payload}"}]}}`)
     // console.log('test')
-    // console.log(json)
+    console.log('json', json)
     yield put({
       type:FETCH_APP_SUCCESS,
       payload:json,

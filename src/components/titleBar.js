@@ -12,7 +12,7 @@ const TitleBar = ({title ,status}) => (
         <img className="position" src = "/static/ITTP-201707.jpg"/> 
       </Link>
         <div className="inline"> {title} </div>
-      <Link href="/saleindex">
+      <Link href="/sale">
         <div className={status !== CHECKSTATUS? 'login-hide':'login'}>
           <button> SALE LOGIN </button>          
         </div>

@@ -6,7 +6,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 
-// sale = saleSevie
+// sale = saleSevice 
 app.prepare()
 .then(() => {
   const server = express()
@@ -14,7 +14,7 @@ app.prepare()
   server.get('/sale/filter/:id', (req, res) => {
     const actualPage = '/sale'
     const queryParams = { title: req.params.id }
-    console.log(queryParams) 
+    console.log('test', queryParams) 
     app.render(req, res, actualPage, queryParams)
   })
 

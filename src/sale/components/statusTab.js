@@ -24,13 +24,12 @@ import {
 
 const StatusTab = () => {
   return(
-    <div className="statusmenu">
+    <div className="">
       <Head>
         <link href="/static/styles.css" rel="stylesheet" />
       </Head>
-      <ul>
+      <ul className="statusmenu">
         <StatusMenu id={ ALL_STATUS } title={ ALL }/>
-        <StatusMenu id={ STATUS_FILLFORM } title={FILLFORM}/>
         <StatusMenu id={ STATUS_WAIT_VERIFY } title={WAIT_VERIFY}/>
         <StatusMenu id={ STATUS_WAIT_ANALYST } title={WAIT_APPROVE}/>
         <StatusMenu id={ STATUS_WAIT_APPROVE } title={WAIT_CONFIRM}/>

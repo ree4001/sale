@@ -19,7 +19,7 @@ const initialState = {
 const application = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_APP:{
-    console.log('FETCH_APP: action', action)
+    // console.log('FETCH_APP: action', action)
       return {
         ...state,
         loading: true,
@@ -35,7 +35,6 @@ const application = (state = initialState, action) => {
         ...state,
         appDb: {
           // ...state.applicationDb, TODO: // Make it store cache
-          ...state.appDb,
           ...newApplications,
         },
         error: '',
