@@ -3,6 +3,7 @@ import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react
 import enhancedWithRowData from '../hoc/enhancedWithRowData'
 import SetFormatMoney from '../hoc/SetFormatMoney'  
 import ChangeDate from '../hoc/ChangeDate'
+import CheckProduct from '../hoc/CheckProduct'
 import {
   applicationNo,
   productGroup,
@@ -21,8 +22,7 @@ class ApplicationList extends Component {
     fetchApp('all')
   }
   render() {
-    const { application } = this.props
-    // console.log( application ,'application')
+    let { application, product } =  this.props
     return (
       <div className="right-content">
         <Griddle data={application}>
@@ -36,6 +36,7 @@ class ApplicationList extends Component {
             <ColumnDefinition
               id="productName"
               title={productName}
+              customComponent={enhancedWithRowData(CheckProduct(product))}
             />
             <ColumnDefinition
               id="appAmount"

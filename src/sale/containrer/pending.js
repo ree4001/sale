@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import WaitConfirm from '../components/waitConfirm'
+import Pending from '../components/pending'
 import { fetchApp } from '../../../reduxModules/application'
 
 const mapStateToProps = state => {
@@ -8,4 +8,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, { fetchApp })(WaitConfirm)
+export default connect(mapStateToProps, { fetchApp })(Pending)

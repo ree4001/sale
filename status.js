@@ -11,9 +11,13 @@ export const WAIT_APPROVE = 'waitApprove'
 export const WAIT_CONFIRM = 'waitConfirm'
 export const WAIT_TRANSFER = 'waitTransfer'
 export const TRANSFERRED = 'transferred'
+export const PENDING = 'pending'
+export const INCOMPLETE = 'Incomplete' 
 
 export const all = 'ALL'
 export const getApplication = 'GETAPPLICATION'
 export const check = 'CKECKAPPLICATION'
 export const pending = 'PANDING'
 export const approved = 'APPROVED'
+
+

@@ -3,6 +3,7 @@ import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react
 import enhancedWithRowData from '../hoc/enhancedWithRowData'
 import SetFormatMoney from '../hoc/SetFormatMoney'
 import ChangeDate from '../hoc/ChangeDate'
+import CheckProduct from '../hoc/CheckProduct'
 import {
   applicationNo,
   productGroup,
@@ -14,10 +15,10 @@ import {
   productName
 } from '../../../text'
 
-class WaitConfirm extends Component {
+class Pending extends Component {
   componentDidMount() {
     const { fetchApp } = this.props
-    fetchApp('waitConfirm')
+    fetchApp('pending')
   }
   render() {
     const { application } = this.props
@@ -35,6 +36,7 @@ class WaitConfirm extends Component {
             <ColumnDefinition
               id="productName"
               title={productName}
+              customComponent={enhancedWithRowData(CheckProduct('productId'))}
             />
             <ColumnDefinition
               id="appAmount"
@@ -55,4 +57,4 @@ class WaitConfirm extends Component {
 }
 
 
-export default WaitConfirm
+export default Pending

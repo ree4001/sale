@@ -8,14 +8,16 @@ import {
 
 export function* fetchApp (action) {
   try {
-    // console.log('action.payload', action.payload)
     let filter = ''
-    if (action.payload !== 'all') { filter = `Applications?filter={"where":{"and":[{"status":"${action.payload}"}]}}`}
-    else { filter = 'Applications' }
+    if (action.payload !== 'all') { 
+      if (action.payload === 'pending') {
+        filter = `Applications/fullApps?filter={"where": {"status": {"inq": ["waitAnalyst","waitConfirm","waitTransfer","waitApprove","fillForm","waitVerify"]}}}`
+      } else {
+        filter = `Applications/fullApps?filter={"where":{"and":[{"status":"${action.payload}"}]}}`        
+      }
+    }
+    else { filter = 'Applications/fullApps' }
     const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
-    // const json = yield call(getJSON, `${API_SERVER}/api/Applications?filter={"where":{"and":[{"status":"${action.payload}"}]}}`)
-    // console.log('test')
-    console.log('json', json)
     yield put({
       type:FETCH_APP_SUCCESS,
       payload:json,

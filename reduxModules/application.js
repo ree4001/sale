@@ -28,7 +28,7 @@ const application = (state = initialState, action) => {
     }
     case FETCH_APP_SUCCESS: {
       const newApplications = action.payload.reduce(
-        (prev, current) => Object.assign(prev, { [current.id]: { ...current } }),
+        (prev, current) => ({...prev, [current.id]: { ...current }}),
         {},
       )
       return {
