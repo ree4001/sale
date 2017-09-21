@@ -5,18 +5,37 @@ import {
   FETCH_APP_SUCCESS,
   FETCH_APP_FAILED
 } from '../reduxModules/application'
+import {
+  ALL_STATUS,
+  TRANSFERRED as STATUS_TRANSFERRED,
+  REJECTED as STATUS_REJECTED,
+  PENDING as STATUS_PENDING,
+  INCOMPLETE as STATUS_INCOMPLETE,
+  CANCEL as STATUS_CANCEL 
+} from '../status'
 
 export function* fetchApp (action) {
   try {
     let filter = ''
-    if (action.payload !== 'all') { 
-      if (action.payload === 'pending') {
+    // console.log(ALL_STATUS)
+    // console.log(action.payload)
+    switch(action.payload){
+      case ALL_STATUS: {
+        filter = 'Applications/fullApps'
+        break;
+      }
+      case STATUS_PENDING: {
         filter = `Applications/fullApps?filter={"where": {"status": {"inq": ["waitAnalyst","waitConfirm","waitTransfer","waitApprove","fillForm","waitVerify"]}}}`
-      } else {
-        filter = `Applications/fullApps?filter={"where":{"and":[{"status":"${action.payload}"}]}}`        
+        break;
+      }
+      case STATUS_CANCEL: {
+        filter = `Applications/fullApps?filter={"where":{"and":[{"status":"rejected"},{"rejectedComment":"ลูกค้าปฏิเสธสินเชื่อ"}]}}`
+        break;
+      }
+      default: {
+        filter = `Applications/fullApps?filter={"where":{"and":[{"status":"${action.payload}"}]}}` 
       }
     }
-    else { filter = 'Applications/fullApps' }
     const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
     yield put({
       type:FETCH_APP_SUCCESS,

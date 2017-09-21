@@ -14,16 +14,11 @@ import StatusMenu from './statusMenu'
 import { SALELOGIN } from '../../../status'
 import {
   ALL_STATUS,
-  FILLFORM as STATUS_FILLFORM,
-  WAIT_VERIFY as STATUS_WAIT_VERIFY,
-  WAIT_ANALYST as STATUS_WAIT_ANALYST,
-  WAIT_APPROVE as STATUS_WAIT_APPROVE,
-  WAIT_CONFIRM as STATUS_WAIT_CONFIRM,
-  WAIT_TRANSFER as STATUS_WAIT_TRANSFER,
   TRANSFERRED as STATUS_TRANSFERRED,
   REJECTED as STATUS_REJECTED,
   PENDING as STATUS_PENDING,
   INCOMPLETE as STATUS_INCOMPLETE,
+  CANCEL as STATUS_CANCEL,
 } from '../../../status'
 import {
   PENDING,
@@ -81,7 +76,7 @@ class SaleSevice extends Component {
                 <StatusMenu id={STATUS_PENDING} title={PENDING} status={menuActive}/>
                 <StatusMenu id={STATUS_TRANSFERRED} title={APPROVE} status={menuActive}/>
                 <StatusMenu id={STATUS_REJECTED} title={REJECT} status={menuActive}/>
-                <StatusMenu id={STATUS_WAIT_TRANSFER} title={CANCEL} status={menuActive}/>
+                <StatusMenu id={STATUS_CANCEL} title={CANCEL} status={menuActive}/>
                 <StatusMenu id={STATUS_INCOMPLETE} title={INCOMPLETE} status={menuActive}/>
               </ul>
             </div>
