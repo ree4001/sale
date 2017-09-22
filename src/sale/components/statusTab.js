@@ -1,40 +1,37 @@
-import Head from 'next/head' 
+import Head from 'next/head'
 import Link from 'next/link'
 import StatusMenu from './statusMenu'
 import {
   ALL,
-  FILLFORM,
-  WAIT_VERIFY,
-  WAIT_ANALYST,
-  WAIT_APPROVE,
-  WAIT_CONFIRM,
-  WAIT_TRANSFER,
+  PENDING,
+  REJECT,
+  CANCEL,
+  APPROVE,
+  INCOMPLETE,
   TRANSFERRED,
 } from '../../../text'
 import {
   ALL_STATUS,
-  FILLFORM as STATUS_FILLFORM,
-  WAIT_VERIFY as STATUS_WAIT_VERIFY,
-  WAIT_ANALYST as STATUS_WAIT_ANALYST,
-  WAIT_APPROVE as STATUS_WAIT_APPROVE,
-  WAIT_CONFIRM as STATUS_WAIT_CONFIRM,
-  WAIT_TRANSFER as STATUS_WAIT_TRANSFER,
   TRANSFERRED as STATUS_TRANSFERRED,
+  REJECTED as STATUS_REJECTED,
+  PENDING as STATUS_PENDING,
+  INCOMPLETE as STATUS_INCOMPLETE,
+  CANCEL as STATUS_CANCEL,
 } from '../../../status'
 
-const StatusTab = () => {
-  return(
-    <div className="">
+const StatusTab = (props) => {
+  return (
+    <div>
       <Head>
         <link href="/static/styles.css" rel="stylesheet" />
       </Head>
       <ul className="statusmenu">
-        <StatusMenu id={ ALL_STATUS } title={ ALL }/>
-        <StatusMenu id={ STATUS_WAIT_VERIFY } title={WAIT_VERIFY}/>
-        <StatusMenu id={ STATUS_WAIT_ANALYST } title={WAIT_APPROVE}/>
-        <StatusMenu id={ STATUS_WAIT_APPROVE } title={WAIT_CONFIRM}/>
-        <StatusMenu id={ STATUS_WAIT_TRANSFER } title={WAIT_TRANSFER}/>
-        <StatusMenu id={ STATUS_TRANSFERRED } title={TRANSFERRED}/>
+        <StatusMenu id={ALL_STATUS} title={ALL} status={props.status} />
+        <StatusMenu id={STATUS_PENDING} title={PENDING} status={props.status} />
+        <StatusMenu id={STATUS_TRANSFERRED} title={APPROVE} status={props.status} />
+        <StatusMenu id={STATUS_REJECTED} title={REJECT} status={props.status} />
+        <StatusMenu id={STATUS_CANCEL} title={CANCEL} status={props.status} />
+        <StatusMenu id={STATUS_INCOMPLETE} title={INCOMPLETE} status={props.status} />
       </ul>
     </div>
   )

@@ -15,10 +15,10 @@ import {
   productName
 } from '../../../text'
 
-class Rejected extends Component {
+class Cancel extends Component {
   componentDidMount() {
     const { fetchApp } = this.props
-    fetchApp('rejected')
+    fetchApp('cancel')
   }
   render() {
     const { application } = this.props
@@ -44,7 +44,6 @@ class Rejected extends Component {
               customComponent={enhancedWithRowData(SetFormatMoney('appAmount'))}
             />
             <ColumnDefinition id="status" title={statusApplication} />
-            <ColumnDefinition id="rejectedComment" title='สาเหตุที่ปฏิเสธ' />
             <ColumnDefinition
               id="createdDate"
               title='วันที่สร้าง'
@@ -58,4 +57,4 @@ class Rejected extends Component {
 }
 
 
-export default Rejected
+export default Cancel

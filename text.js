@@ -11,7 +11,7 @@
   export const pendingApplication = 'อยู่ระหว่างพิจารณาสินเชื่อ'  
   export const approvedApplication = 'ได้รับการอนุมัติสินเชื่อเรียบร้อยแล้ว'
   export const phonenumber = 'เบอร์ติดต่อ'
-  export const salesevice = 'SALESERVICE'
+  export const salesevice = 'Salesevice'
 
   export const FIRSTNAME = 'ชื่อ'
   export const LASTNAME = 'นามสกุล'

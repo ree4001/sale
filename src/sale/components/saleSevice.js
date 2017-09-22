@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import { salesevice } from '../../../text'
 import TitleBar from '../../components/titleBar'
 import ApplicationList from '../containrer/applicationList'
 import Pending from '../containrer/pending'
 import Approve from '../containrer/approve'
 import Rejected from '../containrer/rejected'
+import Cancel from '../containrer/cancel'
 import MenuSale from './menuSale'
 import StatusTab from './statusTab'
 import StatusMenu from './statusMenu'
@@ -26,6 +26,7 @@ import {
   CANCEL,
   APPROVE,
   INCOMPLETE,
+  salesevice,
   //old status
   ALL,
 } from '../../../text'
@@ -57,6 +58,10 @@ class SaleSevice extends Component {
       showlist = (
         <Pending />
       )
+    } else if (status === STATUS_CANCEL) {
+      showlist = (
+        <Cancel />
+      )
     }
     return (
       <div className="wrapper">
@@ -71,14 +76,15 @@ class SaleSevice extends Component {
           </div>
           <div className="right-section">
             <div className="right-header">
-              <ul className="statusmenu">
+              <StatusTab status={menuActive}/>
+              {/* <ul className="statusmenu">
                 <StatusMenu id={ALL_STATUS} title={ALL} status={menuActive}/>
                 <StatusMenu id={STATUS_PENDING} title={PENDING} status={menuActive}/>
                 <StatusMenu id={STATUS_TRANSFERRED} title={APPROVE} status={menuActive}/>
                 <StatusMenu id={STATUS_REJECTED} title={REJECT} status={menuActive}/>
                 <StatusMenu id={STATUS_CANCEL} title={CANCEL} status={menuActive}/>
                 <StatusMenu id={STATUS_INCOMPLETE} title={INCOMPLETE} status={menuActive}/>
-              </ul>
+              </ul> */}
             </div>
             <div className="right-content">
               {showlist}
