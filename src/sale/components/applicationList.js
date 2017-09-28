@@ -17,15 +17,24 @@ import {
 
 
 class ApplicationList extends Component {
+  componentWillReceiveProps(nextProps){
+    const { fetchApp, dateRange: {start, end} } = this.props
+    if ((start !== nextProps.start)||(end !== nextProps.end)) {
+      fetchApp('all',nextProps.start,nextProps.end)
+    }
+  }
   componentDidMount() {
-    const { fetchApp } = this.props
-    fetchApp('all')
+    const { fetchApp, start, end } = this.props
+    fetchApp('all', start, end)
   }
   render() {
-    let { application, product } =  this.props
+    const { application } =  this.props
     return (
       <div className="right-content">
-        <Griddle data={application}>
+        <Griddle 
+        data={application}
+        plugins={[plugins.LocalPlugin]}
+        >
           <RowDefinition>
             <ColumnDefinition
               id="id"
@@ -36,7 +45,7 @@ class ApplicationList extends Component {
             <ColumnDefinition
               id="productName"
               title={productName}
-              customComponent={enhancedWithRowData(CheckProduct(product))}
+              customComponent={enhancedWithRowData(CheckProduct('productId'))}
             />
             <ColumnDefinition
               id="appAmount"

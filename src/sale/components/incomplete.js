@@ -15,18 +15,16 @@ import {
   productName
 } from '../../../text'
 
-class Pending extends Component {
+class Incomplete extends Component {
   componentWillReceiveProps(nextProps) {
     const { fetchApp, dateRange: { start, end } } = this.props
     if ((start !== nextProps.start) || (end !== nextProps.end)) {
-      fetchApp('pending', nextProps.start, nextProps.end)
+      fetchApp('incomplete', nextProps.start, nextProps.end)
     }
-    console.log('test')
   }
   componentDidMount() {
     const { fetchApp, start, end } = this.props
-    fetchApp('pending', start, end)
-    console.log('didmount')
+    fetchApp('incomplete', start, end)
   }
   render() {
     const { application } = this.props
@@ -65,4 +63,4 @@ class Pending extends Component {
 }
 
 
-export default Pending
+export default Incomplete

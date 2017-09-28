@@ -8,10 +8,12 @@ import Pending from '../containrer/pending'
 import Approve from '../containrer/approve'
 import Rejected from '../containrer/rejected'
 import Cancel from '../containrer/cancel'
+import Incomplete from '../containrer/incomplete'
 import MenuSale from './menuSale'
 import StatusTab from './statusTab'
 import StatusMenu from './statusMenu'
-import { SALELOGIN } from '../../../status'
+import Inputdate from '../../containers/inputdate'
+import SetFormatDate from '../hoc/SetFormatDate'
 import {
   ALL_STATUS,
   TRANSFERRED as STATUS_TRANSFERRED,
@@ -19,6 +21,7 @@ import {
   PENDING as STATUS_PENDING,
   INCOMPLETE as STATUS_INCOMPLETE,
   CANCEL as STATUS_CANCEL,
+  SALELOGIN
 } from '../../../status'
 import {
   PENDING,
@@ -27,40 +30,49 @@ import {
   APPROVE,
   INCOMPLETE,
   salesevice,
+  SEARCH,
   //old status
   ALL,
 } from '../../../text'
 
 class SaleSevice extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     const { fetchProduct } = this.props
     fetchProduct({})
   }
   render() {
-    const { params, status, product } = this.props
+    const { status, product, dateRange: { start, end } } = this.props
+    // console.log('date', SetFormatDate(dateRange.start,dateRange.end))
     let menuActive = status
     // const currentStatus = ALL_STATUS
     let showlist
     if (status === ALL_STATUS || status === undefined) {
       menuActive = ALL_STATUS
       showlist = (
-        <ApplicationList product={product} />
+        <ApplicationList start={start} end={end} />
       )
     } else if (status === STATUS_REJECTED) {
       showlist = (
-        <Rejected />
+        <Rejected start={start} end={end} />
       )
     } else if (status === STATUS_TRANSFERRED) {
       showlist = (
-        <Approve />
+        <Approve start={start} end={end} />
       )
     } else if (status === STATUS_PENDING) {
       showlist = (
-        <Pending />
+        <Pending start={start} end={end} />
       )
     } else if (status === STATUS_CANCEL) {
       showlist = (
-        <Cancel />
+        <Cancel start={start} end={end} />
+      )
+    } else if (status === STATUS_INCOMPLETE) {
+      showlist = (
+        <Incomplete start={start} end={end}/>
       )
     }
     return (
@@ -76,17 +88,10 @@ class SaleSevice extends Component {
           </div>
           <div className="right-section">
             <div className="right-header">
-              <StatusTab status={menuActive}/>
-              {/* <ul className="statusmenu">
-                <StatusMenu id={ALL_STATUS} title={ALL} status={menuActive}/>
-                <StatusMenu id={STATUS_PENDING} title={PENDING} status={menuActive}/>
-                <StatusMenu id={STATUS_TRANSFERRED} title={APPROVE} status={menuActive}/>
-                <StatusMenu id={STATUS_REJECTED} title={REJECT} status={menuActive}/>
-                <StatusMenu id={STATUS_CANCEL} title={CANCEL} status={menuActive}/>
-                <StatusMenu id={STATUS_INCOMPLETE} title={INCOMPLETE} status={menuActive}/>
-              </ul> */}
+              <StatusTab status={menuActive} />
             </div>
             <div className="right-content">
+              <Inputdate />
               {showlist}
             </div>
           </div>

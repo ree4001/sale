@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Pending from '../components/pending'
+import Incomplete from '../components/incomplete'
 import { fetchApp } from '../../../reduxModules/application'
 
 const mapStateToProps = state => {
@@ -9,4 +9,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, { fetchApp })(Pending)
+export default connect(mapStateToProps, { fetchApp })(Incomplete)

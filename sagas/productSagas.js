@@ -7,7 +7,7 @@ import {
 } from '../reduxModules/product'
 
 // import { composeRecords } from '../utils/query'
-import { API_SERVER, postJSON, getJSON, patchJSON } from '../utils/api'
+import { API_SERVER, getJSON } from '../utils/api'
 
 
 export function* fetchProduct(action) {

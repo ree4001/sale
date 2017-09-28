@@ -12,6 +12,8 @@
   export const approvedApplication = 'ได้รับการอนุมัติสินเชื่อเรียบร้อยแล้ว'
   export const phonenumber = 'เบอร์ติดต่อ'
   export const salesevice = 'Salesevice'
+  export const SUBMIT = 'ยืนยัน'
+  export const SEARCH = 'ค้นหา'
 
   export const FIRSTNAME = 'ชื่อ'
   export const LASTNAME = 'นามสกุล'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withReduxSaga } from '../store'
-import IndexStatus from '../src/customer/components/checkStatus'
+import CheckStatus from '../src/customer/containers/checkStatus'
 import {
   saleLogin,
   checkStatus,
@@ -9,7 +9,7 @@ import {
 
 class Index extends Component { 
   render() {
-    return  <IndexStatus status={checkStatus}/>
+    return  <CheckStatus status={checkStatus}/>
   }
 }
 

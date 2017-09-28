@@ -22,17 +22,20 @@ body {
     /* border: solid blue; */
     float: left;
     width: 20%;
-    height: 615px;
+    height: 100%;
+    /* height: 615px; */
   }
   .nevbar {
     /* background-color: #4775A3; */
     width: 100%;
-    height: 615px;
+    /* height: 615px; */
+    height: 100%;
     border-radius: 15px;
   }
   .right-section {
     /* background-color: #E6B800; */
-    height: 615px;
+    /* height: 615px; */
+    height: 100%;
     border-radius: 15px;
     width: 78%;
     float: right;
@@ -45,7 +48,8 @@ body {
   }
   .right-content {
     /* background-color: #D3D3D3; */
-    margin: 5px;
+    margin: 15px 5px 5px 5px;
+    /* margin: 5px; */
     height: 495px;
     border-radius: 15px;
   }
@@ -102,7 +106,8 @@ body {
     border-radius: 3px
 }
 .center td {
-    border: 2pt solid #166EAD;
+    border: 2pt solid #ddd;
+    border-radius: 30px;
     padding: 10px;
     color: #166EAD;
     text-align: center;
@@ -128,6 +133,7 @@ body {
 }
 
 .right-content td {
+    /* border: 2px solid #ddd; */
     border: 2pt solid #166EAD;
     padding: 10px;
     color: #166EAD;
@@ -152,13 +158,11 @@ body {
     font: 16px arial, sans-serif; 
 }
 .center {
-    position:absolute;
     align-content: center;
     width:100%;
     height:100%;
     margin-top: 100px;
     float: left;
-    z-index: -1;
 }
 
 
@@ -166,10 +170,11 @@ body {
 .container_progressbar {
     width: 100%;
     padding-top:300px; 
-    margin: 0px;
+    /* margin: 0 auto; */
+    margin-left: 170px;
 }
 .progressbar {
-    counter-reset: step;
+    /* counter-reset: step; */
 }
 .progressbar li {
     list-style-type: none;
@@ -177,12 +182,13 @@ body {
     width: 23.33%;
     position: relative;
     text-align: center;
+    color: #808080;
 }
 .progressbar li:before {
-    content: counter(step);
+    /* content:url(sand-clock.png) ; */
     counter-increment: step;
-    width: 30px;
-    height: 30px;
+    width: 64px;
+    height: 64px;
     line-height: 30px;
     border: 3px solid #ddd;
     display: block;
@@ -195,9 +201,9 @@ body {
     content: '';
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: #ddd;
-    top:15px;
+    top:32px;
     left: -50%;
     z-index: -1;
 }
@@ -205,16 +211,19 @@ body {
     content: none;
 }
 .progressbar li.finish {
-    color: #166EAD;
+    color: #74ac34;
 }
 .progressbar li.wait:before {
+    content:url(sand-clock.png) ;
     border: 3px solid #ddd;
 }
 .position li.wait + li:after {
     background-color: #ddd;
 }
 .progressbar li.finish:before {
-    border-color: #166EAD;
+    content:url(success.png) ;
+    border-color: #74ac34; 
+    /* border-color: #166EAD; */
 }
 .progressbar li.error:before {
     border-color: red;
@@ -226,7 +235,7 @@ body {
     background-color: red;
 }
 .progressbar li.finish + li:after {
-    background-color: #166EAD;
+    background-color: #74ac34;
 }
 
 /*----------------------- progressbar ---------------------*/
@@ -304,16 +313,21 @@ body {
     border-bottom: 2px solid #166EAD;
 } */
 
-
-.date {
-    padding: 50px;
-    margin: 30px;
-}
-.date label{
-    color: #166EAD;
-}
-
 .is-active {
     color: #166EAD;
     border-bottom: 2px solid #2E76A8;
+}
+
+.is-groped {
+    display: inline;
+  }
+
+.btnSubmit {
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #166EAD;
+    border: 1px solid #166EAD;
+    border-radius: 10px; 
+    width: 70px;
 }

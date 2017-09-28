@@ -2,11 +2,17 @@ export const FETCH_APP = 'FETCH_APP'
 export const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
 export const FETCH_APP_FAILED = 'FETCH_APP_FAILED'
 
-export const fetchApp = data => {
+export const fetchApp = ( status,start,end  ) => {
+  // console.log ('data',data,'start',start,'end',end)
   return({
     type: FETCH_APP,
-    payload: data
+    payload: {
+      status,
+      start,
+      end
+    }
   })
+  
 }
 
 const initialState = {

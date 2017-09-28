@@ -25,6 +25,7 @@
     "react-datepicker": "^0.54.0",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
+    "recharts": "^1.0.0-apha.5",
     "redux": "^3.7.2",
     "redux-saga": "^0.15.6",
     "redux-ui": "^0.1.1"

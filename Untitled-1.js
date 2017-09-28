@@ -18,6 +18,14 @@ let filter4 = {
           { checkBankStatement: null }
         ]
       },
+      {
+        createdDate: {
+          between: [
+            '2017-09-14T00:00:00.000Z',
+            '2017-09-21T24:00:00.000Z'
+          ]
+        }
+      }
     ]
   }
 }

@@ -1,4 +1,5 @@
-import Head from 'next/head' 
+import Head from 'next/head'
+import Link from 'next/link'
 
 const MenuSale = () => (
   <div id="left-section">
@@ -6,8 +7,12 @@ const MenuSale = () => (
       <link href="/static/styles.css" rel="stylesheet" />
     </Head>
     <ul className="salemenu">
-      <li>ข้อมูลลูกค้า</li>
-      <li>สรุปยอด</li>
+      <Link href="/sale">
+        <li>ข้อมูลลูกค้า</li>
+      </Link>
+      <Link href={'/summary'}>
+        <li>สรุปยอด</li>
+      </Link>
     </ul>
   </div>
 )

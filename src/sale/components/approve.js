@@ -16,15 +16,21 @@ import {
 } from '../../../text'
 
 class Approve extends Component {
+  componentWillReceiveProps(nextProps) {
+    const { fetchApp, dateRange: { start, end } } = this.props
+    if ((start !== nextProps.start) || (end !== nextProps.end)) {
+      fetchApp('transferred', nextProps.start, nextProps.end)
+    }
+  }
   componentDidMount() {
-    const { fetchApp } = this.props
-    fetchApp('transferred')
+    const { fetchApp, start, end } = this.props
+    fetchApp('transferred', start, end)
   }
   render() {
     const { application } = this.props
     // console.log( application.length ,'application')
     return (
-      <div>
+      <div className="right-content">
         <Griddle data={application}>
           <RowDefinition>
             <ColumnDefinition

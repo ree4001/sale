@@ -12,7 +12,7 @@ export const WAIT_CONFIRM = 'waitConfirm'
 export const WAIT_TRANSFER = 'waitTransfer'
 export const TRANSFERRED = 'transferred'
 export const PENDING = 'pending'
-export const INCOMPLETE = 'Incomplete'
+export const INCOMPLETE = 'incomplete'
 export const CANCEL = 'cancel' 
 
 export const all = 'ALL'

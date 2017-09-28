@@ -5,7 +5,7 @@ import { fetchApp } from '../../../reduxModules/application'
 const mapStateToProps = state => {
   return({
     application: Object.values(state.application.appDb), 
-    product: state.product.productDb,
+    dateRange: state.dateRange
   })
 }
 

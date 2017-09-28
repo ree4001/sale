@@ -16,15 +16,21 @@ import {
 } from '../../../text'
 
 class Cancel extends Component {
+  componentWillReceiveProps(nextProps) {
+    const { fetchApp, dateRange: { start, end } } = this.props
+    if ((start !== nextProps.start) || (end !== nextProps.end)) {
+      fetchApp('cancel', nextProps.start, nextProps.end)
+    }
+  }
   componentDidMount() {
-    const { fetchApp } = this.props
-    fetchApp('cancel')
+    const { fetchApp, start, end } = this.props
+    fetchApp('cancel', start, end)
   }
   render() {
     const { application } = this.props
     // console.log( application ,'application')
     return (
-      <div>
+      <div className="right-content">
         <Griddle data={application}>
           <RowDefinition>
             <ColumnDefinition
