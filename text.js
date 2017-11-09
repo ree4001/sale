@@ -14,6 +14,8 @@
   export const salesevice = 'Salesevice'
   export const SUBMIT = 'ยืนยัน'
   export const SEARCH = 'ค้นหา'
+  export const DATACUSTOMER = 'ข้อมูลลูกค้า'
+  export const SUMMARYDATA = 'สรุปยอด'
 
   export const FIRSTNAME = 'ชื่อ'
   export const LASTNAME = 'นามสกุล'

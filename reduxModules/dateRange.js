@@ -2,6 +2,8 @@ import moment from 'moment'
 
 export const SET_START_DATE = 'SET_START_DATE'
 export const SET_END_DATE = 'SET_END_DATE'
+export const SET_MONTH = 'SET_MONTH'
+export const SET_YEAR = 'SET_YEAR'
 
 export const setStartDate = data => {
   return ({
@@ -16,12 +18,29 @@ export const setEndDate = data => {
     payload: data.target.value
   })
 }
+
+export const setMonth = data => {
+  return ({
+    type: SET_MONTH,
+    payload: data.target.value
+  })
+}
+
+export const setYear = data => {
+  return ({
+    type: SET_YEAR,
+    payload: data.target.value
+  })
+}
+
 const endDate = moment(new Date()).format('YYYY-MM-DD');
 const startDate = moment(endDate).add(-5, 'days').format('YYYY-MM-DD');
 
 const initialState = {
   start: startDate,
   end: endDate,
+  month: '1',
+  year: '2017',
   error: '',
   loading: false,
   successMsg: '',
@@ -40,6 +59,20 @@ const dateRange = (state = initialState, action) => {
       return {
         ...state,
         end: action.payload,
+        loading: true,
+      }
+    }
+    case SET_MONTH: {
+      return {
+        ...state,
+        month: action.payload,
+        loading: true,
+      }
+    }
+    case SET_YEAR: {
+      return {
+        ...state,
+        year: action.payload,
         loading: true,
       }
     }

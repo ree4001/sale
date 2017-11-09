@@ -16,7 +16,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* A few custom styles for date inputs */
 input[type="date"] {
   appearance: none;
-  border-radius: 10px;
+  border-radius: 4px;
   -webkit-appearance: none;
   color: #166EAD;
   /* color: #95a5a6; */
@@ -40,4 +40,19 @@ input[type="date"], focus {
 .is-groped {
   display: inline;
   padding: 10px;
+}
+
+
+select {
+  padding:5px;
+  height: 30px;
+  margin: 8px 0;
+  font-family: "Helvetica", arial, sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  border:1px solid #ecf0f1;
+  background:#ecf0f1;
+  color: #95a5a6;
+  border-radius: 4px;
+  /* box-sizing: border-box; */
 }

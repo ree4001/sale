@@ -19,7 +19,6 @@ const initialState = {
 const customerApp = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CUSTOMER_APP: {
-      console.log('FETCH_CUSTOMER_APP: action', action)
       return {
         ...state,
         loading: true,

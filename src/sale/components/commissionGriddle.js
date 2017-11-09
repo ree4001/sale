@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react'
 import enhancedWithRowData from '../hoc/enhancedWithRowData'
-import SetFormatMoney from '../hoc/SetFormatMoney'
+import SetFormatMoney from '../hoc/SetFormatMoney'  
 import ChangeDate from '../hoc/ChangeDate'
 import CheckProduct from '../hoc/CheckProduct'
 import {
@@ -15,24 +15,17 @@ import {
   productName
 } from '../../../text'
 
-class Cancel extends Component {
-  componentWillReceiveProps(nextProps) {
-    const { fetchApp, dateRange: { start, end } } = this.props
-    if ((start !== nextProps.start) || (end !== nextProps.end)) {
-      fetchApp('cancel', nextProps.start, nextProps.end)
-    }
-  }
-  componentDidMount() {
-    const { fetchApp, start, end } = this.props
-    fetchApp('cancel', start, end)
-  }
+
+class CommissionGriddle extends Component {
+  componentDidMount() {}
   render() {
-    const { application } = this.props
-    // console.log( application ,'application')
+    const { application } =  this.props
     return (
-      <div className="body-content">
-        <Griddle data={application}
-        plugins={[plugins.LocalPlugin]}>
+      <div>
+        <Griddle 
+        data={application}
+        plugins={[plugins.LocalPlugin]}
+        >
           <RowDefinition>
             <ColumnDefinition
               id="id"
@@ -52,16 +45,16 @@ class Cancel extends Component {
             />
             <ColumnDefinition id="status" title={statusApplication} />
             <ColumnDefinition
-              id="createdDate"
-              title='วันที่สร้าง'
-              customComponent={enhancedWithRowData(ChangeDate('createdDate'))}
+            id="createdDate"
+            title='วันรับงาน'
+            customComponent={enhancedWithRowData(ChangeDate('createdDate'))}
             />
           </RowDefinition>
-        </Griddle>
+        </Griddle> 
       </div>
     )
   }
 }
 
 
-export default Cancel
+export default CommissionGriddle

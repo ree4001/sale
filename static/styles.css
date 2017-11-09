@@ -1,7 +1,10 @@
 .position {
-    width: 20%;
+    width: 65px;
     position: relative;
     vertical-align: middle;
+    height: 60px;
+    margin: 0px 0px 0px 0px;
+    float: left;
 }
 
 body {
@@ -10,13 +13,17 @@ body {
 
 @media (min-width:1200px) {
   .header {
-    height: 120px;
-    /* background-color: gray; */
-    border-radius: 15px;
+    height: 80px;
+    box-shadow: 0 3px 15px rgba(182, 182, 182, 0.75);    
+    margin-bottom: 20px;
+    padding: 10px;
+    font: 16px arial, sans-serif;
   }    
   .content {
     /* border: solid pink;  */
     margin-top: 15px;
+    margin: 0 auto;
+    width: 1200px;
   }  
   .left-panel {
     /* border: solid blue; */
@@ -40,17 +47,16 @@ body {
     width: 78%;
     float: right;
   }
-  .right-header {
+  .header-content {
     /* background-color: #FFFAF0; */
     margin: 5px;
     height: 80px;
-    border-radius: 15px;
   }
-  .right-content {
+  .body-content {
     /* background-color: #D3D3D3; */
-    margin: 15px 5px 5px 5px;
+    margin: 0 auto;
+    padding: 15px;
     /* margin: 5px; */
-    height: 495px;
     border-radius: 15px;
   }
   .content::after{
@@ -116,7 +122,7 @@ body {
 /* --------------  test griddle  -----------------------*/
 
 
-.right-content table {
+.body-content table {
     border-radius: 3px;
     border-collapse: collapse;
     /* margin: 0 auto; */
@@ -124,7 +130,7 @@ body {
     font-size: 12px;
     width: 95%;
 }
-.right-content th {
+.body-content th {
     border: 2pt solid #166EAD;
     background-color: #166EAD;
     padding: 10px;
@@ -132,7 +138,7 @@ body {
     border-radius: 3px
 }
 
-.right-content td {
+.body-content td {
     /* border: 2px solid #ddd; */
     border: 2pt solid #166EAD;
     padding: 10px;
@@ -150,12 +156,10 @@ body {
 /* --------------  test griddle  -----------------------*/
 
 .topbar {
-    border-bottom: 2px solid;
-    border-bottom-color: #166EAD;
-    box-shadow: 0 5px 4px rgba(182, 182, 182, 0.75);    
-    margin-bottom: 20px;
+    width: 1200px;
+    margin: 0 auto;
     padding: 10px;
-    font: 16px arial, sans-serif; 
+    font: 16px arial, sans-serif;
 }
 .center {
     align-content: center;
@@ -262,32 +266,27 @@ body {
     background-color: white;
     color: #166EAD
 }
-.salemenu li{
-    list-style-type: none;
-    font-size: 20px;
-    padding: 5px;
-    /* border-bottom: 2px solid #166EAD; */
-    color: gray;
-}
-.salemenu li:hover{
-    /* background-color: #166EAD; */
-    color: #166EAD
-}
-.salemenu li.active{
-    background-color: #166EAD;
-    color: white  
-}
-.salemenu  {
-    width: 180px;
-    padding-left:40px; 
-    /* text-align: center; */
+.salmenu {
+    margin: 0 auto;
     float: left;
-    margin-top: 100px
+    padding-left: 5px;
 }
-.salemenu a:link{
-    text-decoration: none;
+.salemenu li.is-active {
+    color: #166EAD;
+    border-bottom: 2px solid #166EAD;
 }
 
+.salmenu li {
+    list-style-type: none;
+    font: 17px arial, sans-serif;    
+    float: left;
+    position: relative;
+    text-align: center;
+    padding-right: 10px ;
+    padding-left: 10px ;
+    color: gray;
+    /* border-bottom: 1px solid gray; */
+}
 .statusmenu {
     margin: 0 auto;
     float: left;
@@ -309,9 +308,6 @@ body {
     color: gray;
     border-bottom: 1px solid gray;
 }
-/* .statusmenu p:hover{
-    border-bottom: 2px solid #166EAD;
-} */
 
 .is-active {
     color: #166EAD;
@@ -330,4 +326,38 @@ body {
     border: 1px solid #166EAD;
     border-radius: 10px; 
     width: 70px;
+}
+
+
+/*  Commission Page   */
+.commis {
+    margin: 0 auto;
+}
+.commis table {
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-bottom: 30px; 
+    width: 95%;
+}
+.commis th {
+    border: 2pt solid #166EAD;
+    background-color: #166EAD;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 3px
+}
+.commis td {
+    border: 2pt solid #ddd;
+    padding: 10px;
+    color: #166EAD;
+    text-align: center;
+}
+.summaryTable {
+    background-Color: #ddd ;
+    width: 300px; 
+    border-Radius: 5px;
+    padding: 10px 
+}
+.summaryTable td{
+    border: 2pt solid #166EAD;
 }

@@ -21,4 +21,6 @@ export const check = 'CKECKAPPLICATION'
 export const pending = 'PANDING'
 export const approved = 'APPROVED'
 
+export const INDEXSALE = 'sale'
+export const SUMMARYSALE = 'summary'
 

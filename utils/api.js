@@ -5,7 +5,7 @@ const getJSON = url => fetch(url, {
   headers: {
     Accept: 'application/json',
     'Content-type': 'application/json',
-    Authorization: 'TnMlEBsrURnpWAWmS7ZwLqmCaTk30tZdaiiN9UFGCQZs5lIyCsqYK8sCKnpZdcTc',  
+    Authorization: 'TZLySo2xKxTFjoW04RpBF0IcUAJfPXsLSWWOF2zDAugzFzXomjZiqeVsdrJXPwZI',  
   },
 })
   .then(response => response.json())

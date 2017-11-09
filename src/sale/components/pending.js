@@ -21,7 +21,6 @@ class Pending extends Component {
     if ((start !== nextProps.start) || (end !== nextProps.end)) {
       fetchApp('pending', nextProps.start, nextProps.end)
     }
-    console.log('test')
   }
   componentDidMount() {
     const { fetchApp, start, end } = this.props
@@ -32,8 +31,9 @@ class Pending extends Component {
     const { application } = this.props
     // console.log( application ,'application')
     return (
-      <div className="right-content">
-        <Griddle data={application}>
+      <div className="body-content">
+        <Griddle data={application}
+        plugins={[plugins.LocalPlugin]}>
           <RowDefinition>
             <ColumnDefinition
               id="id"

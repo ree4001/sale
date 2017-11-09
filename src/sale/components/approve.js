@@ -30,8 +30,9 @@ class Approve extends Component {
     const { application } = this.props
     // console.log( application.length ,'application')
     return (
-      <div className="right-content">
-        <Griddle data={application}>
+      <div className="body-content">
+        <Griddle data={application}
+        plugins={[plugins.LocalPlugin]}>
           <RowDefinition>
             <ColumnDefinition
               id="id"

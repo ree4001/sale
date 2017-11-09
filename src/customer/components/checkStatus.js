@@ -9,7 +9,7 @@ class CheckStatus extends Component {
   componentDidMount() {
     const { fetchCustomerApp, fetchProduct } = this.props
     fetchProduct()
-    fetchCustomerApp('1102002367377')
+    fetchCustomerApp('4101200009225')
     // fetchCustomerApp('4131200009225')
     // fetchCustomerApp('1129700031389')    
   }

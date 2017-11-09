@@ -29,7 +29,6 @@ export function* fetchCustomerApp(action) {
       payload: json,
     })
   } catch (err) {
-    console.log('err',err)
     yield put({
       type: FETCH_CUSTOMER_APP_FAILED,
       payload: 'error',

@@ -3,7 +3,6 @@ export const FETCH_APP_SUCCESS = 'FETCH_APP_SUCCESS'
 export const FETCH_APP_FAILED = 'FETCH_APP_FAILED'
 
 export const fetchApp = ( status,start,end  ) => {
-  // console.log ('data',data,'start',start,'end',end)
   return({
     type: FETCH_APP,
     payload: {
@@ -12,7 +11,6 @@ export const fetchApp = ( status,start,end  ) => {
       end
     }
   })
-  
 }
 
 const initialState = {
@@ -25,7 +23,6 @@ const initialState = {
 const application = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_APP:{
-    // console.log('FETCH_APP: action', action)
       return {
         ...state,
         loading: true,

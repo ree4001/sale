@@ -23,9 +23,9 @@ app.prepare()
     return handle(req, res)
   })
 
-  server.listen(8081, (err) => {
+  server.listen(8083, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log('> Ready on http://localhost:8083')
   })
 })
 .catch((ex) => {

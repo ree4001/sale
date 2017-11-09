@@ -92,6 +92,19 @@ let filterCancel = {
     ]
   },
 }
+let filterReject = {
+  where: {
+    and:[
+      { status: 'rejected' },
+      { rejectedComment: { neq: 'ลูกค้าปฏิเสธสินเชื่อ' } },
+      {
+        createdDate: {
+          between: []
+        }
+      }
+    ]
+  }
+}
 
 let filterAll = {
   where: {
@@ -107,6 +120,7 @@ export function* fetchApp(action) {
   dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   let dateEnd = action.payload.end
   dateEnd = moment(dateEnd).add(1, 'days').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
+  console.log(dateStart, dateEnd )
   try {
     let filter = ''
     switch (action.payload.status) {
@@ -123,6 +137,7 @@ export function* fetchApp(action) {
       case STATUS_CANCEL: {
         filterCancel.where.and[2].createdDate.between = [dateStart, dateEnd]
         filter = `Applications/fullApps?filter=${JSON.stringify(filterCancel)}`
+        console.log(JSON.stringify(filterCancel))
         break;
       }
       case STATUS_INCOMPLETE: {
@@ -130,14 +145,19 @@ export function* fetchApp(action) {
         filter = `Applications/fullApps?filter=${JSON.stringify(filterIncomplete)}`
         break;
       }
+      case STATUS_REJECTED:{
+        filterReject.where.and[2].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/fullApps?filter=${JSON.stringify(filterReject)}`
+        break;
+      }
       default: {
         filterDefault.where.and[0].status = `${action.payload.status}`
         filterDefault.where.and[1].createdDate.between = [dateStart, dateEnd]
-        console.log(`${JSON.stringify(filterDefault)}`)
         filter = `Applications/fullApps?filter=${JSON.stringify(filterDefault)}`
       }
     }
     const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
+    console.log(json.length)
     yield put({
       type: FETCH_APP_SUCCESS,
       payload: json,

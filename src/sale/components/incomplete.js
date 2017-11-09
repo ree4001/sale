@@ -30,8 +30,9 @@ class Incomplete extends Component {
     const { application } = this.props
     // console.log( application ,'application')
     return (
-      <div className="right-content">
-        <Griddle data={application}>
+      <div className="body-content">
+        <Griddle data={application}
+        plugins={[plugins.LocalPlugin]}>
           <RowDefinition>
             <ColumnDefinition
               id="id"

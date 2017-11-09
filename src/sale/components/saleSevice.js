@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import TitleBar from '../../components/titleBar'
-import ApplicationList from '../containrer/applicationList'
-import Pending from '../containrer/pending'
-import Approve from '../containrer/approve'
-import Rejected from '../containrer/rejected'
-import Cancel from '../containrer/cancel'
-import Incomplete from '../containrer/incomplete'
+import ApplicationList from '../containers/applicationList'
+import Pending from '../containers/pending'
+import Approve from '../containers/approve'
+import Rejected from '../containers/rejected'
+import Cancel from '../containers/cancel'
+import Incomplete from '../containers/incomplete'
 import MenuSale from './menuSale'
 import StatusTab from './statusTab'
 import StatusMenu from './statusMenu'
@@ -77,23 +77,16 @@ class SaleSevice extends Component {
     }
     return (
       <div className="wrapper">
-        <div className="header">
+        <div className="header"> 
           <TitleBar title={salesevice} status={SALELOGIN} />
         </div>
         <div className="content">
-          <div className="left-panel">
-            <div className="nevbar">
-              <MenuSale />
-            </div>
+          <div className="header-content">
+            <StatusTab status={menuActive} />
           </div>
-          <div className="right-section">
-            <div className="right-header">
-              <StatusTab status={menuActive} />
-            </div>
-            <div className="right-content">
-              <Inputdate />
-              {showlist}
-            </div>
+          <div className="body-content">
+            <Inputdate />
+            {showlist}
           </div>
         </div>
       </div>
