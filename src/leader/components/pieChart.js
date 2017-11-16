@@ -61,34 +61,36 @@ class PieChartSimple extends Component {
     })
   }
   render() {
-    let { summary } = this.props
+    let { leaderYear } = this.props
     let data = []
     const toDate = new Date
-    if (summary.approve !== undefined) {
+    if (leaderYear.approve !== undefined) {
       data = [
-        { name: 'Approve', value: summary.approve[toDate.getMonth()].length },
-        { name: 'Reject', value: summary.reject[toDate.getMonth()].length },
-        { name: 'Cancel', value: summary.cancel[toDate.getMonth()].length }
+        { name: 'Approve', value: leaderYear.approve[toDate.getMonth()] },
+        { name: 'Reject', value: leaderYear.reject[toDate.getMonth()] },
+        { name: 'Cancel', value: leaderYear.cancel[toDate.getMonth()] }
       ]
-    } 
+    }
     return (
-      <PieChart width={550} height={400} >
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={renderActiveShape}
-          data={data}
-          cx={300}
-          cy={200}
-          innerRadius={50}
-          outerRadius={80}
-          fill="#FDBF26"
-          onMouseEnter={this.onPieEnter}
+      <div>
+        <PieChart width={550} height={400} >
+          <Pie
+            activeIndex={this.state.activeIndex}
+            activeShape={renderActiveShape}
+            data={data}
+            cx={300}
+            cy={200}
+            innerRadius={50}
+            outerRadius={80}
+            fill="#8884d8"
+            onMouseEnter={this.onPieEnter}
           >
           {
           	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
           }
           </Pie>
-      </PieChart>
+        </PieChart>
+      </div>
     )
   }
 }

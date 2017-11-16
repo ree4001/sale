@@ -1,4 +1,4 @@
-const CalculateCommission = (extraApp, noEextraApp) => {
+export const CalculateCommission = (extraApp, noEextraApp) => {
   let commissionNonExtra = 0
   let commissionExtra = 0
   if (extraApp < 0) { 
@@ -20,4 +20,3 @@ export const AddCommaToNumber = (number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-export default CalculateCommission

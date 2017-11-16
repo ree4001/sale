@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import MenuTab from '../sale/components/menuTab'
+import MenuTab from '../leader/components/menuTab'
 import { CHECKSTATUS } from '../../status'
 
 const TitleBarLeader = ({title ,status}) => (
@@ -12,6 +12,7 @@ const TitleBarLeader = ({title ,status}) => (
       <Link href="/index">
         <img className="position" src = "/static/ITTP-201707.png"/> 
       </Link> 
+      <MenuTab />
     </div>
 )
 

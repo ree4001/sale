@@ -30,7 +30,7 @@ class Rejected extends Component {
     const { application } = this.props
     // console.log( application ,'application')
     return (
-      <div className="body-content">
+      <div className="griddle">
         <Griddle data={application}
         plugins={[plugins.LocalPlugin]}>
           <RowDefinition>
@@ -51,7 +51,7 @@ class Rejected extends Component {
               customComponent={enhancedWithRowData(SetFormatMoney('appAmount'))}
             />
             <ColumnDefinition id="status" title={statusApplication} />
-            <ColumnDefinition id="rejectedComment" title='สาเหตุที่ปฏิเสธ' />
+            <ColumnDefinition className="wide-column" id="rejectedComment" title='สาเหตุที่ปฏิเสธ' />
             <ColumnDefinition
               id="createdDate"
               title='วันที่สร้าง'

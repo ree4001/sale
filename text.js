@@ -16,6 +16,7 @@
   export const SEARCH = 'ค้นหา'
   export const DATACUSTOMER = 'ข้อมูลลูกค้า'
   export const SUMMARYDATA = 'สรุปยอด'
+  export const APPLICATIONFORLEADER = 'ข้อมูลใบสมัคร'
 
   export const FIRSTNAME = 'ชื่อ'
   export const LASTNAME = 'นามสกุล'

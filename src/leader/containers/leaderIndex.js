@@ -1,11 +1,13 @@
 import { connect } from 'react-redux'
-import leaderIndex from '../components/leaderIndex'
-import { fetchMonthSummary } from '../../../reduxModules/leader'
+import LeaderIndex from '../components/leaderIndex'
+import { fetchMonthSummary, fetchYrarSummary } from '../../../reduxModules/leader'
 
 const mapStateToProps = state => {
   return({
-    leader: state.leader.monthSummaryDb
-  })
+    leaderMonth: state.leader.monthSummaryDb,
+    leaderYear: state.leader.yearSummaryDb,
+    dateRange: state.dateRange
+})
 }
 
-export default connect(mapStateToProps, { fetchMonthSummary })(leaderIndex)
+export default connect(mapStateToProps, { fetchMonthSummary, fetchYrarSummary })(LeaderIndex)

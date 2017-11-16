@@ -1,5 +1,4 @@
-import { takeLatest } from 'redux-saga'
-import { put, call } from 'redux-saga/effects'
+import { put, call, select, takeLatest } from 'redux-saga/effects'
 import {
   FETCH_PRODUCT,
   FETCH_PRODUCT_SUCCESS,

@@ -122,13 +122,12 @@ body {
 /* --------------  test griddle  -----------------------*/
 
 
+
 .body-content table {
     border-radius: 3px;
     border-collapse: collapse;
-    /* margin: 0 auto; */
-    margin: 10px;
     font-size: 12px;
-    width: 95%;
+    width: 100%;
 }
 .body-content th {
     border: 2pt solid #166EAD;
@@ -337,7 +336,7 @@ body {
     border-collapse: collapse;
     font-size: 15px;
     margin-bottom: 30px; 
-    width: 95%;
+    width: 100%;
 }
 .commis th {
     border: 2pt solid #166EAD;
@@ -352,11 +351,36 @@ body {
     color: #166EAD;
     text-align: center;
 }
+
+.summary table {
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-bottom: 30px; 
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.summary th {
+    border: 2pt solid #166EAD;
+    background-color: #166EAD;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 3px
+}
+.summary td {
+    border: 2pt solid #ddd;
+    padding: 10px;
+    color: #166EAD;
+    text-align: center;
+}
+
 .summaryTable {
-    background-Color: #ddd ;
+    background-Color: #f2f2f2 ;
     width: 300px; 
     border-Radius: 5px;
-    padding: 10px 
+    margin: 0 auto;
+    padding: 15px 
 }
 .summaryTable td{
     border: 2pt solid #166EAD;

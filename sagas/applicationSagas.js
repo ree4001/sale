@@ -4,7 +4,10 @@ import { API_SERVER, getJSON } from '../utils/api'
 import {
   FETCH_APP,
   FETCH_APP_SUCCESS,
-  FETCH_APP_FAILED
+  FETCH_APP_FAILED,
+  FETCH_APP_FOR_LEADER,
+  FETCH_APP_FOR_LEADER_SUCCESS,
+  FETCH_APP_FOR_LEADER_FAILED
 } from '../reduxModules/application'
 import {
   ALL_STATUS,
@@ -37,6 +40,9 @@ let filterIncomplete = {
         createdDate: {
           between: []
         }
+      },
+      {
+        wayCode: 'b001'
       }
     ]
   }
@@ -61,6 +67,9 @@ let filterPending = {
         createdDate: {
           between: []
         }
+      },
+      {
+        wayCode: 'b001'
       }
     ]
   }
@@ -74,6 +83,9 @@ let filterDefault = {
         createdDate: {
           between: []
         }
+      },
+      {
+        wayCode: 'b001'
       }
     ]
   }
@@ -88,19 +100,25 @@ let filterCancel = {
         createdDate: {
           between: []
         }
+      },
+      {
+        wayCode: 'b001'
       }
     ]
   },
 }
 let filterReject = {
   where: {
-    and:[
+    and: [
       { status: 'rejected' },
       { rejectedComment: { neq: 'ลูกค้าปฏิเสธสินเชื่อ' } },
       {
         createdDate: {
           between: []
         }
+      },
+      {
+        wayCode: 'b001'
       }
     ]
   }
@@ -108,25 +126,31 @@ let filterReject = {
 
 let filterAll = {
   where: {
-    createdDate: {
-      between: []
-    }
+    and: [
+      {
+        createdDate: {
+          between: []
+        }
+      },
+      {
+        wayCode: 'b001'
+      }
+    ]
   }
 }
-//  JSON.stringify(filterIncomplete)
 
 export function* fetchApp(action) {
   let dateStart = action.payload.start
   dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   let dateEnd = action.payload.end
   dateEnd = moment(dateEnd).add(1, 'days').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
-  console.log(dateStart, dateEnd )
   try {
-    let filter = ''
+    let filter = ''   
     switch (action.payload.status) {
       case ALL_STATUS: {
-        filterAll.where.createdDate.between = [dateStart, dateEnd]
+        filterAll.where.and[0].createdDate.between = [dateStart, dateEnd]
         filter = `Applications/fullApps?filter=${JSON.stringify(filterAll)}`
+        console.log(JSON.stringify(filterAll))
         break;
       }
       case STATUS_PENDING: {
@@ -137,7 +161,6 @@ export function* fetchApp(action) {
       case STATUS_CANCEL: {
         filterCancel.where.and[2].createdDate.between = [dateStart, dateEnd]
         filter = `Applications/fullApps?filter=${JSON.stringify(filterCancel)}`
-        console.log(JSON.stringify(filterCancel))
         break;
       }
       case STATUS_INCOMPLETE: {
@@ -145,7 +168,7 @@ export function* fetchApp(action) {
         filter = `Applications/fullApps?filter=${JSON.stringify(filterIncomplete)}`
         break;
       }
-      case STATUS_REJECTED:{
+      case STATUS_REJECTED: {
         filterReject.where.and[2].createdDate.between = [dateStart, dateEnd]
         filter = `Applications/fullApps?filter=${JSON.stringify(filterReject)}`
         break;
@@ -157,7 +180,7 @@ export function* fetchApp(action) {
       }
     }
     const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
-    console.log(json.length)
+    console.log(json)
     yield put({
       type: FETCH_APP_SUCCESS,
       payload: json,
@@ -172,6 +195,64 @@ export function* fetchApp(action) {
   }
 }
 
+export function* fetchAppForLeader(action) {
+  let dateStart = action.payload.start
+  dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
+  let dateEnd = action.payload.end
+  dateEnd = moment(dateEnd).add(1, 'days').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
+  try {
+    let filter = ''
+    console.log('saga')
+    switch (action.payload.status) {
+      case ALL_STATUS: {
+        filterAll.where.and[0].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterAll)}`
+        break;
+      }
+      case STATUS_PENDING: {
+        filterPending.where.and[1].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterPending)}`
+        break;
+      }
+      case STATUS_CANCEL: {
+        filterCancel.where.and[2].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterCancel)}`
+        break;
+      }
+      case STATUS_INCOMPLETE: {
+        filterIncomplete.where.and[2].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterIncomplete)}`
+        break;
+      }
+      case STATUS_REJECTED: {
+        filterReject.where.and[2].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterReject)}`
+        break;
+      }
+      default: {
+        filterDefault.where.and[0].status = `${action.payload.status}`
+        filterDefault.where.and[1].createdDate.between = [dateStart, dateEnd]
+        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterDefault)}`
+      }
+    }
+    const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
+    console.log(json)
+    yield put({
+      type: FETCH_APP_FOR_LEADER_SUCCESS,
+      payload: json,
+      successMsg: '',
+    })
+  } catch (error) {
+    yield put({
+      type: FETCH_APP_FOR_LEADER_FAILED,
+      payload: error,
+      successMsg: '',
+    })
+  }
+}
+
+
 export function* watchAppSaga() {
-  yield takeLatest(FETCH_APP, fetchApp)
+  yield takeLatest(FETCH_APP, fetchApp),
+  yield takeLatest(FETCH_APP_FOR_LEADER, fetchAppForLeader)
 }

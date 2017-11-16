@@ -21,7 +21,7 @@ class CommissionGriddle extends Component {
   render() {
     const { application } =  this.props
     return (
-      <div>
+      <div className="griddle">
         <Griddle 
         data={application}
         plugins={[plugins.LocalPlugin]}

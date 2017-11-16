@@ -13,11 +13,15 @@ app.prepare()
 
   server.get('/sale/filter/:id', (req, res) => {
     const actualPage = '/sale'
-    const queryParams = { title: req.params.id }
-    console.log('test', queryParams) 
+    const queryParams = { title: req.params.id } 
     app.render(req, res, actualPage, queryParams)
   })
 
+  server.get('/ApplicationForLeader/filter/:id', (req, res) => {
+    const actualPage = '/ApplicationForLeader'
+    const queryParams = { title: req.params.id } 
+    app.render(req, res, actualPage, queryParams)
+  })
 
   server.get('*', (req, res) => {
     return handle(req, res)

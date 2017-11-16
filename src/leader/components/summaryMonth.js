@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import PieChart from './pieChart'
-import SummaryTable from './summaryTable'
-import { CalculateCommission,AddCommaToNumber } from '../util/calculateCommission'
+import SummaryMonthTable from './summaryMonthTable'
 
-class PeiSummary extends Component {
+class SummaryMonth extends Component {
   render() {
-    let { summary } = this.props
+    let { leaderYear } = this.props
     return (
       <div>
         <div>
@@ -16,11 +15,11 @@ class PeiSummary extends Component {
         <table>
           <tbody>
             <tr>
-              <td style={{ border:"0px", width: '50%'}}>
-                <PieChart summary={summary} />
+              <td style={{ border: "0px", width: '50%' }}>
+                <PieChart leaderYear={leaderYear} />
               </td>
-              <td style={{ border:"0px"}}>
-              <SummaryTable summary={summary} />
+              <td style={{ border: "0px" }}>
+                <SummaryMonthTable leaderYear={leaderYear} />
               </td>
             </tr>
           </tbody>
@@ -30,5 +29,5 @@ class PeiSummary extends Component {
   }
 }
 
-export default PeiSummary
+export default SummaryMonth
 

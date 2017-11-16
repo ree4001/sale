@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react'
-import enhancedWithRowData from '../hoc/enhancedWithRowData'
-import SetFormatMoney from '../hoc/SetFormatMoney'
-import ChangeDate from '../hoc/ChangeDate'
-import CheckProduct from '../hoc/CheckProduct'
+import enhancedWithRowData from '../../sale/hoc/enhancedWithRowData'
+import SetFormatMoney from '../../sale/hoc/SetFormatMoney'
+import ChangeDate from '../../sale/hoc/ChangeDate'
+import CheckProduct from '../../sale/hoc/CheckProduct'
 import {
   applicationNo,
   productGroup,
@@ -15,24 +15,26 @@ import {
   productName
 } from '../../../text'
 
-class Cancel extends Component {
+
+class ApplicationList extends Component {
   componentWillReceiveProps(nextProps) {
-    const { fetchApp, dateRange: { start, end } } = this.props
+    const { fetchAppForLeader, dateRange: { start, end } } = this.props
     if ((start !== nextProps.start) || (end !== nextProps.end)) {
-      fetchApp('cancel', nextProps.start, nextProps.end)
+      fetchAppForLeader('all', nextProps.start, nextProps.end)
     }
   }
   componentDidMount() {
-    const { fetchApp, start, end } = this.props
-    fetchApp('cancel', start, end)
+    const { fetchAppForLeader, start, end } = this.props
+    fetchAppForLeader('all', start, end)
   }
   render() {
     const { application } = this.props
-    // console.log( application ,'application')
     return (
       <div className="griddle">
-        <Griddle data={application}
-        plugins={[plugins.LocalPlugin]}>
+        <Griddle
+          data={application}
+          plugins={[plugins.LocalPlugin]}
+        >
           <RowDefinition>
             <ColumnDefinition
               id="id"
@@ -56,6 +58,7 @@ class Cancel extends Component {
               title='วันที่สร้าง'
               customComponent={enhancedWithRowData(ChangeDate('createdDate'))}
             />
+            <ColumnDefinition id="wayCode" title='รหัสตัวแทนจำหน่าย' />
           </RowDefinition>
         </Griddle>
       </div>
@@ -64,4 +67,4 @@ class Cancel extends Component {
 }
 
 
-export default Cancel
+export default ApplicationList

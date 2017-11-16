@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
 import { connect } from 'react-redux'
-import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import TitleBar from '../../components/titleBar'
+import TitleBarLeader from '../../components/titleBarLeader'
 import ApplicationList from '../containers/applicationList'
 import Pending from '../containers/pending'
 import Approve from '../containers/approve'
 import Rejected from '../containers/rejected'
 import Cancel from '../containers/cancel'
 import Incomplete from '../containers/incomplete'
-import MenuSale from './menuSale'
 import StatusTab from './statusTab'
-import StatusMenu from './statusMenu'
 import Inputdate from '../../containers/inputdate'
-import SetFormatDate from '../hoc/SetFormatDate'
+import SetFormatDate from '../../sale/hoc/SetFormatDate'
 import {
   ALL_STATUS,
   TRANSFERRED as STATUS_TRANSFERRED,
@@ -36,7 +33,7 @@ import {
   ALL,
 } from '../../../text'
 
-class SaleSevice extends Component {
+class ApplicationForLeader extends Component {
   constructor(props) {
     super(props);
   }
@@ -82,7 +79,7 @@ class SaleSevice extends Component {
           <link href="/static/griddle.css" rel="stylesheet" />
         </Head>
         <div className="header">
-          <TitleBar title={salesevice} status={SALELOGIN} />
+          <TitleBarLeader title={salesevice} status={SALELOGIN} />
         </div>
         <div className="content">
           <div className="header-content">
@@ -98,4 +95,4 @@ class SaleSevice extends Component {
   }
 }
 
-export default SaleSevice
+export default ApplicationForLeader

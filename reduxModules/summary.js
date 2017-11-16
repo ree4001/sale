@@ -3,7 +3,6 @@ export const FETCH_SUMMARY_APP_SUCESS = 'FETCH_SUMMARY_APP_SUCESS'
 export const FETCH_SUMMARY_APP_FAILD = 'FETCH_SUMMARY_APP_FAILD'
 
 export const fetchSummaryApp = () => {
-  console.log('testsummary')
   return({
     type: FETCH_SUMMARY_APP
   })

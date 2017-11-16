@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react'
-import enhancedWithRowData from '../hoc/enhancedWithRowData'
-import SetFormatMoney from '../hoc/SetFormatMoney'
-import ChangeDate from '../hoc/ChangeDate'
-import CheckProduct from '../hoc/CheckProduct'
+import enhancedWithRowData from '../../sale/hoc/enhancedWithRowData'
+import SetFormatMoney from '../../sale/hoc/SetFormatMoney'
+import ChangeDate from '../../sale/hoc/ChangeDate'
+import CheckProduct from '../../sale/hoc/CheckProduct'
 import {
   applicationNo,
   productGroup,
@@ -15,16 +15,17 @@ import {
   productName
 } from '../../../text'
 
-class Cancel extends Component {
+class Pending extends Component {
   componentWillReceiveProps(nextProps) {
-    const { fetchApp, dateRange: { start, end } } = this.props
+    const { fetchAppForLeader, dateRange: { start, end } } = this.props
     if ((start !== nextProps.start) || (end !== nextProps.end)) {
-      fetchApp('cancel', nextProps.start, nextProps.end)
+      fetchAppForLeader('pending', nextProps.start, nextProps.end)
     }
   }
   componentDidMount() {
-    const { fetchApp, start, end } = this.props
-    fetchApp('cancel', start, end)
+    const { fetchAppForLeader, start, end } = this.props
+    fetchAppForLeader('pending', start, end)
+    console.log('didmount')
   }
   render() {
     const { application } = this.props
@@ -64,4 +65,4 @@ class Cancel extends Component {
 }
 
 
-export default Cancel
+export default Pending

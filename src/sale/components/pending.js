@@ -25,13 +25,12 @@ class Pending extends Component {
   componentDidMount() {
     const { fetchApp, start, end } = this.props
     fetchApp('pending', start, end)
-    console.log('didmount')
   }
   render() {
     const { application } = this.props
     // console.log( application ,'application')
     return (
-      <div className="body-content">
+      <div className="griddle">
         <Griddle data={application}
         plugins={[plugins.LocalPlugin]}>
           <RowDefinition>

@@ -30,7 +30,7 @@ class ApplicationList extends Component {
   render() {
     const { application } =  this.props
     return (
-      <div className="body-content">
+      <div className="griddle">
         <Griddle 
         data={application}
         plugins={[plugins.LocalPlugin]}
