@@ -1,4 +1,5 @@
 import { API_SERVER, getJSON } from '../utils/api'
+import { API_SERVER_EXPRESS } from '../config'
 import { put, call, select, takeLatest } from 'redux-saga/effects'
 import {
   FETCH_MONTH_SUMMARY,
@@ -12,7 +13,7 @@ import {
 export function* fetchYrarSummary(action) {
   const toYear = new Date() 
   try{
-    const dataSummaryInYear = yield call(getJSON, `${API_SERVER}/api/Commissions/getByLeaderYear?year=${toYear.getFullYear()}`)
+    const dataSummaryInYear = yield call(getJSON, `${API_SERVER_EXPRESS}/commission/getByLeaderYear/${toYear.getFullYear()}`)
     yield put({
       type: FETCH_YEAR_SUMMARY_SUCCESS,
       payload: dataSummaryInYear,
@@ -27,7 +28,7 @@ export function* fetchYrarSummary(action) {
 
 export function* fetchMonthSummary(action) {
   try{
-    const dataSummaryInMonth = yield call(getJSON, `${API_SERVER}/api/Commissions/getByLeaderMonth?month=${action.payload.month}&year=${action.payload.year}`)
+    const dataSummaryInMonth = yield call(getJSON, `${API_SERVER_EXPRESS}/commission/getByLeaderMonth/${action.payload.month}/${action.payload.year}`)  
     yield put({
       type: FETCH_MONTH_SUMMARY_SUCCESS,
       payload: dataSummaryInMonth,

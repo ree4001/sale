@@ -4,6 +4,7 @@ import { watchCustomerSaga } from './customerSagas'
 import { watchCommssionSaga } from './commissionSagas'
 import { watchSummarySaga } from './summarySagas'
 import { watchLeaderSaga } from './leaderSagas'
+import { watchLoginSagas } from './auth'
 import { all } from 'redux-saga/effects'
 
 export default function* rootSaga () {
@@ -15,5 +16,6 @@ export default function* rootSaga () {
     watchCommssionSaga(),
     watchSummarySaga(),
     watchLeaderSaga(),
+    watchLoginSagas(),
   ])
 }

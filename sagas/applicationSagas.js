@@ -1,6 +1,7 @@
 import { put, call, select, takeLatest } from 'redux-saga/effects'
 import moment from 'moment'
 import { API_SERVER, getJSON } from '../utils/api'
+import { API_SERVER_EXPRESS } from '../config'
 import {
   FETCH_APP,
   FETCH_APP_SUCCESS,
@@ -42,7 +43,7 @@ let filterIncomplete = {
         }
       },
       {
-        wayCode: 'b001'
+        wayCode: ''
       }
     ]
   }
@@ -69,7 +70,7 @@ let filterPending = {
         }
       },
       {
-        wayCode: 'b001'
+        wayCode: ''
       }
     ]
   }
@@ -85,7 +86,7 @@ let filterDefault = {
         }
       },
       {
-        wayCode: 'b001'
+        wayCode: ''
       }
     ]
   }
@@ -102,7 +103,7 @@ let filterCancel = {
         }
       },
       {
-        wayCode: 'b001'
+        wayCode: ''
       }
     ]
   },
@@ -118,7 +119,7 @@ let filterReject = {
         }
       },
       {
-        wayCode: 'b001'
+        wayCode: ''
       }
     ]
   }
@@ -133,54 +134,60 @@ let filterAll = {
         }
       },
       {
-        wayCode: 'b001'
+        wayCode: ''
       }
     ]
   }
 }
 
 export function* fetchApp(action) {
+  const SaleCode = 'b001'
   let dateStart = action.payload.start
   dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   let dateEnd = action.payload.end
   dateEnd = moment(dateEnd).add(1, 'days').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   try {
-    let filter = ''   
+    let expressfilter = ''   
     switch (action.payload.status) {
       case ALL_STATUS: {
         filterAll.where.and[0].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/fullApps?filter=${JSON.stringify(filterAll)}`
-        console.log(JSON.stringify(filterAll))
+        filterAll.where.and[1].wayCode = SaleCode
+        expressfilter = `${JSON.stringify(filterAll)}`
         break;
       }
       case STATUS_PENDING: {
         filterPending.where.and[1].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/fullApps?filter=${JSON.stringify(filterPending)}`
+        filterPending.where.and[2].wayCode = SaleCode
+        expressfilter = `${JSON.stringify(filterPending)}`
         break;
       }
       case STATUS_CANCEL: {
         filterCancel.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/fullApps?filter=${JSON.stringify(filterCancel)}`
+        filterCancel.where.and[3].wayCode = SaleCode
+        expressfilter = `${JSON.stringify(filterCancel)}`
         break;
       }
       case STATUS_INCOMPLETE: {
         filterIncomplete.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/fullApps?filter=${JSON.stringify(filterIncomplete)}`
+        filterIncomplete.where.and[3].wayCode = SaleCode
+        expressfilter = `${JSON.stringify(filterIncomplete)}`
         break;
       }
       case STATUS_REJECTED: {
         filterReject.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/fullApps?filter=${JSON.stringify(filterReject)}`
+        filterReject.where.and[3].wayCode = SaleCode
+        expressfilter = `${JSON.stringify(filterReject)}`
         break;
       }
       default: {
         filterDefault.where.and[0].status = `${action.payload.status}`
         filterDefault.where.and[1].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/fullApps?filter=${JSON.stringify(filterDefault)}`
+        filterDefault.where.and[2].wayCode = SaleCode
+        expressfilter = `${JSON.stringify(filterDefault)}`
+        break
       }
     }
-    const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
-    console.log(json)
+    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/sale/${expressfilter}`)
     yield put({
       type: FETCH_APP_SUCCESS,
       payload: json,
@@ -201,42 +208,41 @@ export function* fetchAppForLeader(action) {
   let dateEnd = action.payload.end
   dateEnd = moment(dateEnd).add(1, 'days').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   try {
-    let filter = ''
-    console.log('saga')
+    let expressfilter = ''
     switch (action.payload.status) {
       case ALL_STATUS: {
         filterAll.where.and[0].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterAll)}`
+        expressfilter = `${JSON.stringify(filterAll)}`
         break;
       }
       case STATUS_PENDING: {
         filterPending.where.and[1].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterPending)}`
+        expressfilter = `${JSON.stringify(filterPending)}`
         break;
       }
       case STATUS_CANCEL: {
         filterCancel.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterCancel)}`
+        expressfilter = `${JSON.stringify(filterCancel)}`
         break;
       }
       case STATUS_INCOMPLETE: {
         filterIncomplete.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterIncomplete)}`
+        expressfilter = `${JSON.stringify(filterIncomplete)}`
         break;
       }
       case STATUS_REJECTED: {
         filterReject.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterReject)}`
+        expressfilter = `${JSON.stringify(filterReject)}`
         break;
       }
       default: {
         filterDefault.where.and[0].status = `${action.payload.status}`
         filterDefault.where.and[1].createdDate.between = [dateStart, dateEnd]
-        filter = `Applications/getByLeader?stastus=${action.payload.status}&filter=${JSON.stringify(filterDefault)}`
+        expressfilter = `${JSON.stringify(filterDefault)}`
+        break;
       }
     }
-    const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
-    console.log(json)
+    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/leader/${action.payload.status}/${expressfilter}`)
     yield put({
       type: FETCH_APP_FOR_LEADER_SUCCESS,
       payload: json,

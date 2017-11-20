@@ -27,8 +27,10 @@
     "react-redux": "^5.0.6",
     "recharts": "^1.0.0-apha.5",
     "redux": "^3.7.2",
+    "redux-form": "^7.1.2",
     "redux-saga": "^0.15.6",
-    "redux-ui": "^0.1.1"
+    "redux-ui": "^0.1.1",
+    "universal-cookie": "^2.1.0"
   },
   "devDependencies": {
     "redux-devtools-extension": "2.13.2"

@@ -1,27 +1,11 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 import React, { Component } from 'react'
 
-// const data = [
-//   { name: 'มกราคม', Approve: 120, Reject: 30, Cancel: 0 },
-//   { name: 'กุมภาพันธ์', Approve: 150, Reject: 40, Cancel: 12 },
-//   { name: 'มีนาคม', Approve: 70, Reject: 20, Cancel: 20 },
-//   { name: 'เมษายน', Approve: 120, Reject: 50, Cancel: 30 },
-//   { name: 'พฤษภาคม', Approve: 100, Reject: 40, Cancel: 50 },
-//   { name: 'มิถุนายน', Approve: 60, Reject: 20, Cancel: 70 },
-//   { name: 'กรกฎาคม', Approve: 80, Reject: 15, Cancel: 20 },
-//   { name: 'สิงหาคม', Approve: 150, Reject: 40, Cancel: 15 },
-//   { name: 'กันยายน', Approve: 130, Reject: 35, Cancel: 10 },
-//   { name: 'ตุลาคม', Approve: 90, Reject: 26, Cancel: 32 },
-//   { name: 'พฤศจิกายน', Approve: 200, Reject: 40, Cancel: 34 },
-//   { name: 'ธันวาคม', Approve: 110, Reject: 10, Cancel: 18 },
-// ]
-
 class BarChartSimple extends Component {
   render() {
     let { summary } = this.props
     let data = []
     if (summary.approve !== undefined) {
-      console.log(summary.reject[9].length)
       data = [
         { name: 'มกราคม', Approve: summary.approve[0].length, Reject: summary.reject[0].length, Cancel: summary.cancel[0].length },
         { name: 'กุมภาพันธ์', Approve: summary.approve[1].length, Reject: summary.reject[1].length, Cancel: summary.cancel[1].length },

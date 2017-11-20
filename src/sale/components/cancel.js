@@ -4,6 +4,7 @@ import enhancedWithRowData from '../hoc/enhancedWithRowData'
 import SetFormatMoney from '../hoc/SetFormatMoney'
 import ChangeDate from '../hoc/ChangeDate'
 import CheckProduct from '../hoc/CheckProduct'
+import ChangStatusCancel from '../hoc/ChangStatusCancel'
 import {
   applicationNo,
   productGroup,
@@ -50,7 +51,11 @@ class Cancel extends Component {
               title='วงเงิน'
               customComponent={enhancedWithRowData(SetFormatMoney('appAmount'))}
             />
-            <ColumnDefinition id="status" title={statusApplication} />
+            <ColumnDefinition 
+              id="status" 
+              title={statusApplication} 
+              customComponent={enhancedWithRowData(ChangStatusCancel('status'))}
+              />
             <ColumnDefinition
               id="createdDate"
               title='วันที่สร้าง'

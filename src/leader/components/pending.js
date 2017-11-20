@@ -25,11 +25,9 @@ class Pending extends Component {
   componentDidMount() {
     const { fetchAppForLeader, start, end } = this.props
     fetchAppForLeader('pending', start, end)
-    console.log('didmount')
   }
   render() {
     const { application } = this.props
-    // console.log( application ,'application')
     return (
       <div className="griddle">
         <Griddle data={application}

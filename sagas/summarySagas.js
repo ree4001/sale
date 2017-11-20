@@ -1,72 +1,17 @@
 import { put, call, select, takeLatest } from 'redux-saga/effects'
 import moment from 'moment'
 import { API_SERVER, getJSON } from '../utils/api'
+import { API_SERVER_EXPRESS } from '../config'
 import {
   FETCH_SUMMARY_APP,
   FETCH_SUMMARY_APP_SUCESS,
   FETCH_SUMMARY_APP_FAILD,
 } from '../reduxModules/summary'
 
-const sale_id = 'b001'
-let filterCancel = {
-  where: {
-    and: [
-      { status: 'rejected' },
-      { rejectedComment: 'ลูกค้าปฏิเสธสินเชื่อ' },
-      {
-        rejectedTimestamp: {
-          between: []
-        }
-      },
-      { wayCode: `${sale_id}` }
-    ]
-  },
-}
-
-let filterApprove = {
-  where: {
-    and: [
-      { status: 'transferred' },
-      {
-        transferredDate: {
-          between: []
-        }
-      },
-      { wayCode: `${sale_id}` }
-    ]
-  }
-}
-
-let filterReject = {
-  where: {
-    and: [
-      { status: 'rejected' },
-      { rejectedComment: { neq: 'ลูกค้าปฏิเสธสินเชื่อ' } },
-      {
-        rejectedTimestamp: {
-          between: []
-        }
-      },
-      { wayCode: `${sale_id}` }
-    ]
-  }
-}
-
-
 export function* fetchSummaryApp(action) {
   const year = new Date()
-  const StringfristDate = '01-01-'
-  const StringfristDateFull = StringfristDate.concat(year.getFullYear())
-  const StringEndDateFull = StringfristDate.concat((year.getFullYear() + 1))
-  const fristDateOfYear = moment(StringfristDateFull, 'DD-MM-YYYY').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
-  const endDateOfYear = moment(StringEndDateFull, 'DD-MM-YYYY').format('YYYY-MM-DDTHH:mm:ss.000\\Z')
-  filterCancel.where.and[2].rejectedTimestamp.between = [fristDateOfYear, endDateOfYear]
-  filterApprove.where.and[1].transferredDate.between = [fristDateOfYear, endDateOfYear]
-  filterReject.where.and[2].rejectedTimestamp.between = [fristDateOfYear, endDateOfYear]
   try {
-    const cancel = yield call(getJSON, `${API_SERVER}/api/Applications/fullApps?filter=${JSON.stringify(filterCancel)}`)
-    const appprove = yield call(getJSON, `${API_SERVER}/api/Applications/fullApps?filter=${JSON.stringify(filterApprove)}`)
-    const reject = yield call(getJSON, `${API_SERVER}/api/Applications/fullApps?filter=${JSON.stringify(filterReject)}`)
+    const summaryApp = yield call(getJSON, `${API_SERVER_EXPRESS}/commission/summaryYear/${year.getFullYear()}`)
     const obj = {
       cancel: {
         0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: []
@@ -78,7 +23,7 @@ export function* fetchSummaryApp(action) {
         0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: []
       }
     }
-    cancel.forEach(app => {
+    summaryApp.cancel.forEach(app => {
       switch (moment(app.rejectedTimestamp).month()) {
         case 0: {
           obj.cancel[0].push(app)
@@ -130,7 +75,7 @@ export function* fetchSummaryApp(action) {
         }
       }
     })
-    appprove.forEach(app => {
+    summaryApp.approve.forEach(app => {
       switch (moment(app.transferredDate).month()) {
         case 0: {
           obj.approve[0].push(app)
@@ -182,7 +127,7 @@ export function* fetchSummaryApp(action) {
         }
       }
     })
-    reject.forEach(app => {
+    summaryApp.reject.forEach(app => {
       switch (moment(app.rejectedTimestamp).month()) {
         case 0: {
           obj.reject[0].push(app)

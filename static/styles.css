@@ -248,9 +248,6 @@ body {
     float: right;
     display: none;
 }
-.login{
-    float: right;
-}
 .login button{
     padding: 10px;
     font-weight: bold;
@@ -384,4 +381,22 @@ body {
 }
 .summaryTable td{
     border: 2pt solid #166EAD;
+}
+
+
+/* login style */
+
+.login {
+    background-color: #ddd;
+    width: 800px;
+    margin: 100px auto 100px auto;
+    height: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login p {
+    font-family: "Segoe UI",Arial,sans-serif;
+    padding-top: 40px;
+    font-size: 25px;
 }
