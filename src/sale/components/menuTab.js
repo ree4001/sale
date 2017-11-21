@@ -7,17 +7,17 @@ import {
 import {
   INDEXSALE,
   SUMMARYSALE
-}from '../../../status'
+} from '../../../status'
 
 const MenuTab = (props) => {
   return (
     <div>
       <Head>
-        <link href="/static/styles.css" rel="stylesheet" /> 
+        <link href="/static/styles.css" rel="stylesheet" />
       </Head>
       <ul className="salmenu">
-        <Menusale menutitle={DATACUSTOMER} id={INDEXSALE}/>
-        <Menusale menutitle={SUMMARYDATA} id={SUMMARYSALE}/>
+        <Menusale menutitle={SUMMARYDATA} id={SUMMARYSALE} />
+        <Menusale menutitle={DATACUSTOMER} id={INDEXSALE} />
       </ul>
     </div>
   )

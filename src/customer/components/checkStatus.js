@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TitleBar from '../../components/titleBar'
+import TitleBarCustomer from '../../components/titleBarCustomer'
 import TableStatus from './tableStatus'
 import ProcessStep from './processStep'
 import { checkStatus } from '../../../text'
@@ -9,18 +9,20 @@ class CheckStatus extends Component {
   componentDidMount() {
     const { fetchCustomerApp, fetchProduct } = this.props
     fetchProduct()
-    fetchCustomerApp('4101200009225')
+    fetchCustomerApp('1129700031389')
     // fetchCustomerApp('4131200009225')
     // fetchCustomerApp('1129700031389')    
   }
   render() {
     const { status, customer } = this.props
-    return(
+    return (
       <div className="warpper">
-      <TitleBar title={checkStatus} status={CHECKSTATUS}/>
-      <TableStatus customer={customer}/>
-      <ProcessStep customer={customer}/>
-    </div>
+        <div className="header">
+          <TitleBarCustomer title={checkStatus} status={CHECKSTATUS} />
+        </div>
+        <TableStatus customer={customer} />
+        <ProcessStep customer={customer} />
+      </div>
     )
   }
 }

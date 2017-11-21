@@ -1,122 +1,122 @@
 .position {
-    width: 65px;
-    position: relative;
-    vertical-align: middle;
-    height: 60px;
-    margin: 0px 0px 0px 0px;
-    float: left;
+  width: 65px;
+  position: relative;
+  vertical-align: middle;
+  height: 60px;
+  margin: 0px 0px 0px 0px;
+  float: left;
 }
 
 body {
-    margin: 0px;
+  margin: 0px;
 }
 
 @media (min-width:1200px) {
-  .header {
-    height: 80px;
-    box-shadow: 0 3px 15px rgba(182, 182, 182, 0.75);    
-    margin-bottom: 20px;
-    padding: 10px;
-    font: 16px arial, sans-serif;
-  }    
-  .content {
-    /* border: solid pink;  */
+.header {
+  height: 80px;
+  box-shadow: 0 3px 15px rgba(182, 182, 182, 0.75);    
+  margin-bottom: 20px;
+  padding: 10px;
+  font: 16px arial, sans-serif;
+}    
+.content {
+  /* border: solid pink;  */
+  margin-top: 15px;
+  margin: 0 auto;
+  width: 1200px;
+}  
+.left-panel {
+  /* border: solid blue; */
+  float: left;
+  width: 20%;
+  height: 100%;
+  /* height: 615px; */
+}
+.nevbar {
+  /* background-color: #4775A3; */
+  width: 100%;
+  /* height: 615px; */
+  height: 100%;
+  border-radius: 15px;
+}
+.right-section {
+  /* background-color: #E6B800; */
+  /* height: 615px; */
+  height: 100%;
+  border-radius: 15px;
+  width: 78%;
+  float: right;
+}
+.header-content {
+  /* background-color: #FFFAF0; */
+  margin: 5px;
+  height: 80px;
+}
+.body-content {
+  /* background-color: #D3D3D3; */
+  margin: 0 auto;
+  padding: 15px;
+  /* margin: 5px; */
+  border-radius: 15px;
+}
+.content::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
+.footer {
+    height: 100px;
+    /* background-color: #ADADFF; */
+    border-radius: 15px;
     margin-top: 15px;
-    margin: 0 auto;
-    width: 1200px;
-  }  
-  .left-panel {
-    /* border: solid blue; */
-    float: left;
-    width: 20%;
-    height: 100%;
-    /* height: 615px; */
-  }
-  .nevbar {
-    /* background-color: #4775A3; */
-    width: 100%;
-    /* height: 615px; */
-    height: 100%;
-    border-radius: 15px;
-  }
-  .right-section {
-    /* background-color: #E6B800; */
-    /* height: 615px; */
-    height: 100%;
-    border-radius: 15px;
-    width: 78%;
-    float: right;
-  }
-  .header-content {
-    /* background-color: #FFFAF0; */
-    margin: 5px;
-    height: 80px;
-  }
-  .body-content {
-    /* background-color: #D3D3D3; */
-    margin: 0 auto;
-    padding: 15px;
-    /* margin: 5px; */
-    border-radius: 15px;
-  }
-  .content::after{
-    content: " ";
-    display: block;
-    clear: both;
-  }
-  .footer {
-      height: 100px;
-      /* background-color: #ADADFF; */
-      border-radius: 15px;
-      margin-top: 15px;
-  }
+}
 }
 .wrapper{
-    /* border: solid ; */
-    /* padding: 15px; */
+  /* border: solid ; */
+  /* padding: 15px; */
 }
 
 .left-panel {
-    width: 20%
+  width: 20%
 }
 
 .container {
-    width: 970px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 970px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .col-1 {
-    width: 25%;
-    float: left;
+  width: 25%;
+  float: left;
 }
 
 .inline{
-    display: inline;
-    margin-left: 60px;
-    color: #166EAD ;
-    font-size: 30px;
-    height: 100%;
-    width: 60%;
+  display: inline;
+  margin-left: 60px;
+  color: #166EAD ;
+  font-size: 30px;
+  height: 100%;
+  width: 60%;
 }
 .center table {
-    border-radius: 3px;
-    border-collapse: collapse;
-    margin: 0 auto;
-    font-size: 12px
+  border-radius: 3px;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 12px
 }
 .center th {
-    border: 2pt solid #166EAD;
-    background-color: #166EAD;
-    padding: 10px;
-    color: #FFFFFF;
-    border-radius: 3px
+  border: 2pt solid #166EAD;
+  background-color: #166EAD;
+  padding: 10px;
+  color: #FFFFFF;
+  border-radius: 3px
 }
 .center td {
-    border: 2pt solid #ddd;
-    border-radius: 30px;
-    padding: 10px;
-    color: #166EAD;
-    text-align: center;
+  border: 2pt solid #ddd;
+  border-radius: 30px;
+  padding: 10px;
+  color: #166EAD;
+  text-align: center;
 }
 
 /* --------------  test griddle  -----------------------*/
@@ -124,279 +124,305 @@ body {
 
 
 .body-content table {
-    border-radius: 3px;
-    border-collapse: collapse;
-    font-size: 12px;
-    width: 100%;
+  border-radius: 3px;
+  border-collapse: collapse;
+  font-size: 12px;
+  width: 100%;
 }
 .body-content th {
-    border: 2pt solid #166EAD;
-    background-color: #166EAD;
-    padding: 10px;
-    color: #FFFFFF;
-    border-radius: 3px
+  border: 2pt solid #166EAD;
+  background-color: #166EAD;
+  padding: 10px;
+  color: #FFFFFF;
+  border-radius: 3px
 }
 
 .body-content td {
-    /* border: 2px solid #ddd; */
-    border: 2pt solid #166EAD;
-    padding: 10px;
-    color: #166EAD;
-    text-align: center;
+  /* border: 2px solid #ddd; */
+  border: 2pt solid #166EAD;
+  padding: 10px;
+  color: #166EAD;
+  text-align: center;
 }
 
 .center1 {
-    align-content: center;
-    width: 70%;
-    height:100%;
-    float: right;
+  align-content: center;
+  width: 70%;
+  height:100%;
+  float: right;
 }
 
 /* --------------  test griddle  -----------------------*/
 
 .topbar {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 10px;
-    font: 16px arial, sans-serif;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  font: 16px arial, sans-serif;
 }
 .center {
-    align-content: center;
-    width:100%;
-    height:100%;
-    margin-top: 100px;
-    float: left;
+  align-content: center;
+  width:100%;
+  height:100%;
+  margin-top: 100px;
+  float: left;
 }
 
 
 /*----------------------- progressbar ---------------------*/
 .container_progressbar {
-    width: 100%;
-    padding-top:300px; 
-    /* margin: 0 auto; */
-    margin-left: 170px;
+  width: 100%;
+  padding-top:300px; 
+  /* margin: 0 auto; */
+  margin-left: 170px;
 }
 .progressbar {
-    /* counter-reset: step; */
+  /* counter-reset: step; */
 }
 .progressbar li {
-    list-style-type: none;
-    float: left;
-    width: 23.33%;
-    position: relative;
-    text-align: center;
-    color: #808080;
+  list-style-type: none;
+  float: left;
+  width: 23.33%;
+  position: relative;
+  text-align: center;
+  color: #808080;
 }
 .progressbar li:before {
-    /* content:url(sand-clock.png) ; */
-    counter-increment: step;
-    width: 64px;
-    height: 64px;
-    line-height: 30px;
-    border: 3px solid #ddd;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color: white; 
+  /* content:url(sand-clock.png) ; */
+  counter-increment: step;
+  width: 64px;
+  height: 64px;
+  line-height: 30px;
+  border: 3px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: white; 
 }
 .progressbar li:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #ddd;
-    top:32px;
-    left: -50%;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #ddd;
+  top:32px;
+  left: -50%;
+  z-index: -1;
 }
 .progressbar li:first-child:after {
-    content: none;
+  content: none;
 }
 .progressbar li.finish {
-    color: #74ac34;
+  color: #74ac34;
 }
 .progressbar li.wait:before {
-    content:url(sand-clock.png) ;
-    border: 3px solid #ddd;
+  content:url(sand-clock.png) ;
+  border: 3px solid #ddd;
 }
 .position li.wait + li:after {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 .progressbar li.finish:before {
-    content:url(success.png) ;
-    border-color: #74ac34; 
-    /* border-color: #166EAD; */
+  content:url(success.png) ;
+  border-color: #74ac34; 
+  /* border-color: #166EAD; */
 }
 .progressbar li.error:before {
-    border-color: red;
+  border-color: red;
 }
 .progressbar li.nexterror:before{
-    border-color: #166EAD;
+  border-color: #166EAD;
 }
 .progressbar li.nexterror + li:after {
-    background-color: red;
+  background-color: red;
 }
 .progressbar li.finish + li:after {
-    background-color: #74ac34;
+  background-color: #74ac34;
 }
 
 /*----------------------- progressbar ---------------------*/
 
 
 .login-hide {
-    float: right;
-    display: none;
+  float: right;
+  display: none;
 }
-.login button{
-    padding: 10px;
-    font-weight: bold;
-    color: white;
-    background-color: #166EAD;
-    border: 1px solid #166EAD;
-    border-radius: 5px;
-    margin-top: 20px;    
+.logout button{
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #166EAD;
+  border: 1px solid #166EAD;
+  border-radius: 5px;
+  margin-top: 10px;
+  float: right;    
 }
-.login button:hover{
-    border-color: #166EAD;
-    background-color: white;
-    color: #166EAD
+.logout button:hover{
+  border-color: #166EAD;
+  background-color: white;
+  color: #166EAD
 }
 .salmenu {
-    margin: 0 auto;
-    float: left;
-    padding-left: 5px;
+  margin: 0 auto;
+  float: left;
+  padding-left: 5px;
 }
 .salemenu li.is-active {
-    color: #166EAD;
-    border-bottom: 2px solid #166EAD;
+  color: #166EAD;
+  border-bottom: 2px solid #166EAD;
 }
 
 .salmenu li {
-    list-style-type: none;
-    font: 17px arial, sans-serif;    
-    float: left;
-    position: relative;
-    text-align: center;
-    padding-right: 10px ;
-    padding-left: 10px ;
-    color: gray;
-    /* border-bottom: 1px solid gray; */
+  list-style-type: none;
+  font: 17px arial, sans-serif;    
+  float: left;
+  position: relative;
+  text-align: center;
+  padding-right: 10px ;
+  padding-left: 10px ;
+  color: gray;
+  /* border-bottom: 1px solid gray; */
 }
 .statusmenu {
-    margin: 0 auto;
-    float: left;
-    padding-left: 5px;
+  margin: 0 auto;
+  float: left;
+  padding-left: 5px;
 }
 .statusmenu li.is-active {
-    color: #166EAD;
-    border-bottom: 2px solid #166EAD;
+  color: #166EAD;
+  border-bottom: 2px solid #166EAD;
 }
 
 .statusmenu li {
-    list-style-type: none;
-    font: 17px arial, sans-serif;    
-    float: left;
-    position: relative;
-    text-align: center;
-    padding-right: 10px ;
-    padding-left: 10px ;
-    color: gray;
-    border-bottom: 1px solid gray;
+  list-style-type: none;
+  font: 17px arial, sans-serif;    
+  float: left;
+  position: relative;
+  text-align: center;
+  padding-right: 10px ;
+  padding-left: 10px ;
+  color: gray;
+  border-bottom: 1px solid gray;
 }
 
 .is-active {
-    color: #166EAD;
-    border-bottom: 2px solid #2E76A8;
+  color: #166EAD;
+  border-bottom: 2px solid #2E76A8;
 }
 
 .is-groped {
-    display: inline;
-  }
+  display: inline;
+}
 
 .btnSubmit {
-    padding: 5px;
-    font-size: 14px;
-    color: white;
-    background-color: #166EAD;
-    border: 1px solid #166EAD;
-    border-radius: 10px; 
-    width: 70px;
+  padding: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: #166EAD;
+  border: 1px solid #166EAD;
+  border-radius: 10px; 
+  width: 70px;
 }
 
 
 /*  Commission Page   */
 .commis {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .commis table {
-    border-collapse: collapse;
-    font-size: 15px;
-    margin-bottom: 30px; 
-    width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 30px; 
+  width: 100%;
 }
 .commis th {
-    border: 2pt solid #166EAD;
-    background-color: #166EAD;
-    padding: 10px;
-    color: #FFFFFF;
-    border-radius: 3px
+  border: 2pt solid #166EAD;
+  background-color: #166EAD;
+  padding: 10px;
+  color: #FFFFFF;
+  border-radius: 3px
 }
 .commis td {
-    border: 2pt solid #ddd;
-    padding: 10px;
-    color: #166EAD;
-    text-align: center;
+  border: 2pt solid #ddd;
+  padding: 10px;
+  color: #166EAD;
+  text-align: center;
 }
 
 .summary table {
-    border-collapse: collapse;
-    font-size: 15px;
-    margin-bottom: 30px; 
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 30px; 
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .summary th {
-    border: 2pt solid #166EAD;
-    background-color: #166EAD;
-    padding: 10px;
-    color: #FFFFFF;
-    border-radius: 3px
+  border: 2pt solid #166EAD;
+  background-color: #166EAD;
+  padding: 10px;
+  color: #FFFFFF;
+  border-radius: 3px
 }
 .summary td {
-    border: 2pt solid #ddd;
-    padding: 10px;
-    color: #166EAD;
-    text-align: center;
+  border: 2pt solid #ddd;
+  padding: 10px;
+  color: #166EAD;
+  text-align: center;
 }
 
 .summaryTable {
-    background-Color: #f2f2f2 ;
-    width: 300px; 
-    border-Radius: 5px;
-    margin: 0 auto;
-    padding: 15px 
+  background-Color: #f2f2f2 ;
+  width: 300px; 
+  border-Radius: 5px;
+  margin: 0 auto;
+  padding: 15px 
 }
 .summaryTable td{
-    border: 2pt solid #166EAD;
+  border: 2pt solid #166EAD;
 }
 
 
 /* login style */
 
 .login {
-    background-color: #ddd;
-    width: 800px;
-    margin: 100px auto 100px auto;
-    height: 400px;
-    border-radius: 10px;
-    text-align: center;
+  background-color: #ddd;
+  width: 800px;
+  margin: 100px auto 100px auto;
+  height: 400px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.login button{
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #166EAD;
+  border: 1px solid #166EAD;
+  border-radius: 5px;
+  margin-top: 20px;    
+}
+.login button:hover{
+  border-color: #166EAD;
+  background-color: white;
+  color: #166EAD
 }
 
 .login p {
-    font-family: "Segoe UI",Arial,sans-serif;
-    padding-top: 40px;
-    font-size: 25px;
+  font-family: "Segoe UI",Arial,sans-serif;
+  padding-top: 40px;
+  font-size: 25px;
+}
+.customerHead {
+  float: left;
+}
+
+.customerHead p {
+  font-size: 25px;
+  margin: 0px;
+  padding: 13px 0px 0px 20px;
+  color: #848484;
 }

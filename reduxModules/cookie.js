@@ -1,12 +1,13 @@
 import Cookies from 'universal-cookie'
 
 // types
-const SET_COOKIE = 'SET_COOKIE'
-const REMOVE_COOKIE = 'REMOVE_COOKIE'
-const LOAD_ALL_COOKIES = 'LOAD_ALL_COOKIES'
+export const SET_COOKIE = 'SET_COOKIE'
+export const REMOVE_COOKIE = 'REMOVE_COOKIE'
+export const LOAD_ALL_COOKIES = 'LOAD_ALL_COOKIES'
 
 // actions
 export const setCookie = (key, value) => {
+  console.log('setCokies', key, value)
   const cookies = new Cookies()
   cookies.set(key, value)
   return ({
@@ -37,13 +38,18 @@ export const loadAllCookies = cookies => ({
 const initialState = {}
 const cookieReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_COOKIE:
+    case SET_COOKIE: {     
       const { key, value } = action.payload
+      const cookies = new Cookies()
+      cookies.set(key, value)
       return {
         ...state,
         [key]: value,
       }
+    }
     case REMOVE_COOKIE:
+      const cookies = new Cookies()
+      cookies.remove(action.payload)      
       const newState = Object.assign({}, state)
       delete newState[action.payload]
       return newState

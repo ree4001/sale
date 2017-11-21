@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { connect } from 'react-redux'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
+import Router from 'next/router'
 import TitleBar from '../../components/titleBar'
 import ApplicationList from '../containers/applicationList'
 import Pending from '../containers/pending'
@@ -15,6 +16,7 @@ import StatusTab from './statusTab'
 import StatusMenu from './statusMenu'
 import Inputdate from '../../containers/inputdate'
 import SetFormatDate from '../hoc/SetFormatDate'
+import { getCookie } from '../../../sagas/util/getCookie'
 import {
   ALL_STATUS,
   TRANSFERRED as STATUS_TRANSFERRED,
@@ -41,6 +43,10 @@ class SaleSevice extends Component {
     super(props);
   }
   componentDidMount() {
+    // console.log(getCookie('rank'))
+    // if( getCookie('rank') === undefined ){
+    //   Router.push(`/login`)
+    // }
     const { fetchProduct } = this.props
     fetchProduct({})
   }

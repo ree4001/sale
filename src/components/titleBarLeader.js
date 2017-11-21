@@ -9,10 +9,15 @@ const TitleBarLeader = ({title ,status}) => (
         <link href="/static/styles.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
-      <Link href="/index">
+      <Link href="/login">
         <img className="position" src = "/static/ITTP-201707.png"/> 
       </Link> 
       <MenuTab />
+      <Link href="/login">
+        <div className="logout">
+          <button> Logout </button>          
+        </div>
+      </Link>
     </div>
 )
 

@@ -12,7 +12,6 @@ import {
 class TableStatus extends Component {
   render() {
     const { customer } = this.props
-    // console.log('customerApp', customer)
     return (
       <div className="center">
         <table>
