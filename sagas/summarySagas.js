@@ -1,5 +1,6 @@
 import { put, call, select, takeLatest } from 'redux-saga/effects'
 import moment from 'moment'
+import Cookies from 'universal-cookie'
 import { API_SERVER, getJSON } from '../utils/api'
 import { API_SERVER_EXPRESS } from '../config'
 import {
@@ -10,8 +11,10 @@ import {
 
 export function* fetchSummaryApp(action) {
   const year = new Date()
+  const cookies = new Cookies()
+  const sale_id = cookies.get('username')
   try {
-    const summaryApp = yield call(getJSON, `${API_SERVER_EXPRESS}/commission/summaryYear/${year.getFullYear()}`)
+    const summaryApp = yield call(getJSON, `${API_SERVER_EXPRESS}/commission/summaryYear/${year.getFullYear()}/${sale_id}`)
     const obj = {
       cancel: {
         0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: []

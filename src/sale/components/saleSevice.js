@@ -43,10 +43,6 @@ class SaleSevice extends Component {
     super(props);
   }
   componentDidMount() {
-    // console.log(getCookie('rank'))
-    // if( getCookie('rank') === undefined ){
-    //   Router.push(`/login`)
-    // }
     const { fetchProduct } = this.props
     fetchProduct({})
   }

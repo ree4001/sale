@@ -243,26 +243,6 @@ body {
 
 /*----------------------- progressbar ---------------------*/
 
-
-.login-hide {
-  float: right;
-  display: none;
-}
-.logout button{
-  padding: 10px;
-  font-weight: bold;
-  color: white;
-  background-color: #166EAD;
-  border: 1px solid #166EAD;
-  border-radius: 5px;
-  margin-top: 10px;
-  float: right;    
-}
-.logout button:hover{
-  border-color: #166EAD;
-  background-color: white;
-  color: #166EAD
-}
 .salmenu {
   margin: 0 auto;
   float: left;
@@ -416,11 +396,35 @@ body {
   padding-top: 40px;
   font-size: 25px;
 }
+
+.login-hide {
+  float: right;
+  display: none;
+}
+.logout button{
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #166EAD;
+  border: 1px solid #166EAD;
+  border-radius: 5px;
+  margin-top: 10px;
+  float: right;    
+}
+.logout button:hover{
+  border-color: #166EAD;
+  background-color: white;
+  color: #166EAD
+}
+.logout p{
+  float: right
+}
+
 .customerHead {
   float: left;
 }
 
-.customerHead p {
+.customerHead p{
   font-size: 25px;
   margin: 0px;
   padding: 13px 0px 0px 20px;

@@ -5,7 +5,7 @@ const getJSON = url => fetch(url, {
   headers: {
     Accept: 'application/json',
     'Content-type': 'application/json',
-    Authorization: 'TZLySo2xKxTFjoW04RpBF0IcUAJfPXsLSWWOF2zDAugzFzXomjZiqeVsdrJXPwZI',  
+    Authorization: 'zIi9BviQcr4uPAswfNLB2cA8PHGAAOCIfgnong6g1iBxfvJ6U5JaA94bUPL31nSX',  
   },
 })
   .then(response => response.json())
@@ -20,7 +20,7 @@ const getJSON = url => fetch(url, {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      Authorization: 'TZLySo2xKxTFjoW04RpBF0IcUAJfPXsLSWWOF2zDAugzFzXomjZiqeVsdrJXPwZI', 
+      Authorization: 'zIi9BviQcr4uPAswfNLB2cA8PHGAAOCIfgnong6g1iBxfvJ6U5JaA94bUPL31nSX', 
     },
     body: JSON.stringify(jsonBody),
   })

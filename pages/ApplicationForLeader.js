@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withReduxSaga } from '../store'
 import ApplicationForLeader from '../src/leader/containers/applicationForLeader'
+import {requireAuthLeader} from '../src/hoc/requireAuth'
 
 class LeaderApplicaion extends Component {
   render() {
@@ -9,4 +10,4 @@ class LeaderApplicaion extends Component {
   }
 }
 
-export default withReduxSaga(LeaderApplicaion)
+export default withReduxSaga(requireAuthLeader(LeaderApplicaion))

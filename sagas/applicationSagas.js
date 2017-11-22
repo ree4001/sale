@@ -1,5 +1,6 @@
 import { put, call, select, takeLatest } from 'redux-saga/effects'
 import moment from 'moment'
+import Cookies from 'universal-cookie'
 import { API_SERVER, getJSON } from '../utils/api'
 import { API_SERVER_EXPRESS } from '../config'
 import {
@@ -140,8 +141,11 @@ let filterAll = {
   }
 }
 
+const cookies = new Cookies()
+const sale_id = cookies.get('username')
+
 export function* fetchApp(action) {
-  const SaleCode = 'b001'
+  // const SaleCode = 'b001'
   let dateStart = action.payload.start
   dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   let dateEnd = action.payload.end
@@ -151,38 +155,38 @@ export function* fetchApp(action) {
     switch (action.payload.status) {
       case ALL_STATUS: {
         filterAll.where.and[0].createdDate.between = [dateStart, dateEnd]
-        filterAll.where.and[1].wayCode = SaleCode
+        filterAll.where.and[1].wayCode = sale_id
         expressfilter = `${JSON.stringify(filterAll)}`
         break;
       }
       case STATUS_PENDING: {
         filterPending.where.and[1].createdDate.between = [dateStart, dateEnd]
-        filterPending.where.and[2].wayCode = SaleCode
+        filterPending.where.and[2].wayCode = sale_id
         expressfilter = `${JSON.stringify(filterPending)}`
         break;
       }
       case STATUS_CANCEL: {
         filterCancel.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filterCancel.where.and[3].wayCode = SaleCode
+        filterCancel.where.and[3].wayCode = sale_id
         expressfilter = `${JSON.stringify(filterCancel)}`
         break;
       }
       case STATUS_INCOMPLETE: {
         filterIncomplete.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filterIncomplete.where.and[3].wayCode = SaleCode
+        filterIncomplete.where.and[3].wayCode = sale_id
         expressfilter = `${JSON.stringify(filterIncomplete)}`
         break;
       }
       case STATUS_REJECTED: {
         filterReject.where.and[2].createdDate.between = [dateStart, dateEnd]
-        filterReject.where.and[3].wayCode = SaleCode
+        filterReject.where.and[3].wayCode = sale_id
         expressfilter = `${JSON.stringify(filterReject)}`
         break;
       }
       default: {
         filterDefault.where.and[0].status = `${action.payload.status}`
         filterDefault.where.and[1].createdDate.between = [dateStart, dateEnd]
-        filterDefault.where.and[2].wayCode = SaleCode
+        filterDefault.where.and[2].wayCode = sale_id
         expressfilter = `${JSON.stringify(filterDefault)}`
         break
       }
@@ -242,7 +246,7 @@ export function* fetchAppForLeader(action) {
         break;
       }
     }
-    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/leader/${action.payload.status}/${expressfilter}`)
+    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/leader/${action.payload.status}/${expressfilter}/${sale_id}`)
     yield put({
       type: FETCH_APP_FOR_LEADER_SUCCESS,
       payload: json,

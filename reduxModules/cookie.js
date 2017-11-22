@@ -6,28 +6,6 @@ export const REMOVE_COOKIE = 'REMOVE_COOKIE'
 export const LOAD_ALL_COOKIES = 'LOAD_ALL_COOKIES'
 
 // actions
-export const setCookie = (key, value) => {
-  console.log('setCokies', key, value)
-  const cookies = new Cookies()
-  cookies.set(key, value)
-  return ({
-    type: SET_COOKIE,
-    payload: {
-      key,
-      value,
-    },
-  })
-}
-
-export const removeCookie = (key, value) => {
-  const cookies = new Cookies()
-  cookies.remove(key)
-  return ({
-    type: REMOVE_COOKIE,
-    payload: key,
-  })
-}
-
 export const loadAllCookies = cookies => ({
   type: LOAD_ALL_COOKIES,
   payload: cookies,

@@ -17,6 +17,7 @@
   export const DATACUSTOMER = 'ข้อมูลลูกค้า'
   export const SUMMARYDATA = 'สรุปยอด'
   export const APPLICATIONFORLEADER = 'ข้อมูลใบสมัคร'
+  export const UNAUTHORIZED = 'Username หรือ Password ไม่ถูกต้อง'
 
   export const FIRSTNAME = 'ชื่อ'
   export const LASTNAME = 'นามสกุล'

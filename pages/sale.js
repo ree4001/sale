@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withReduxSaga } from '../store'
 import SaleSevice from '../src/sale/containers/saleSevice'
+import {requireAuthSale} from '../src/hoc/requireAuth'
 
 class Sale extends Component {
   render() {
@@ -9,4 +10,4 @@ class Sale extends Component {
   }
 }
 
-export default withReduxSaga(Sale)
+export default withReduxSaga(requireAuthSale(Sale))
