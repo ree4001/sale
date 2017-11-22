@@ -8,7 +8,6 @@ import MenuSale from './menuSale'
 import PeiChart from './pieChart'
 import PeiSummary from './pieSummary'
 import BarChart from './barChart'
-import { getCookie } from '../../../sagas/util/getCookie'
 import { SALELOGIN } from '../../../status'
 import {
   salesevice,
