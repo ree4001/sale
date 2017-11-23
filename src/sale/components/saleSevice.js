@@ -16,7 +16,6 @@ import StatusTab from './statusTab'
 import StatusMenu from './statusMenu'
 import Inputdate from '../../containers/inputdate'
 import SetFormatDate from '../hoc/SetFormatDate'
-import { getCookie } from '../../../sagas/util/getCookie'
 import {
   ALL_STATUS,
   TRANSFERRED as STATUS_TRANSFERRED,
