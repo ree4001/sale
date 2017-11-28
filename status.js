@@ -23,6 +23,6 @@ export const approved = 'APPROVED'
 
 export const INDEXSALE = 'sale'
 export const SUMMARYSALE = 'summary'
-export const INDEXLEADER = 'leader'
+export const INDEXLEADER = 'leaderSummary'
 export const APPLICATION_UNDER_SALE = 'ApplicationForLeader'
 

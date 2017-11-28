@@ -1,6 +1,7 @@
 // import { put, call, select, takeLatest } from 'redux-saga/effects'
 import { API_SERVER, getJSON } from '../utils/api'
 import { put, call, select, takeLatest } from 'redux-saga/effects'
+import { API_SERVER_EXPRESS } from '../config'
 import {
   FETCH_CUSTOMER_APP,
   FETCH_CUSTOMER_APP_SUCCESS,
@@ -21,8 +22,8 @@ export function* fetchCustomerApp(action) {
   try {
     let filter = ''
     appfilter.where.and[0].citizenId = `${action.payload}`
-    filter = `Applications/fullApps?filter=${JSON.stringify(appfilter)}`
-    const json = yield call(getJSON, `${API_SERVER}/api/${filter}`)
+    filter = JSON.stringify(appfilter)
+    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/Customer/${filter}`)
     yield put({
       type: FETCH_CUSTOMER_APP_SUCCESS,
       payload: json,

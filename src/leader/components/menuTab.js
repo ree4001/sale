@@ -10,14 +10,16 @@ import {
 }from '../../../status'
 
 const MenuTab = (props) => {
+  const tabmenu = props.tabmenu
+  console.log(tabmenu)
   return (
     <div>
       <Head>
         <link href="/static/styles.css" rel="stylesheet" /> 
       </Head>
       <ul className="salmenu">
-        <MenuLeader menutitle={SUMMARYDATA} id={INDEXLEADER}/>
-        <MenuLeader menutitle={APPLICATIONFORLEADER} id={APPLICATION_UNDER_SALE}/>
+        <MenuLeader menutitle={SUMMARYDATA} id={INDEXLEADER} tabmenu={tabmenu}/>
+        <MenuLeader menutitle={APPLICATIONFORLEADER} id={APPLICATION_UNDER_SALE} tabmenu={tabmenu}/>
       </ul>
     </div>
   )

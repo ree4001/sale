@@ -27,7 +27,7 @@ const customerApp = (state = initialState, action) => {
     case FETCH_CUSTOMER_APP_SUCCESS: {
       return {
         ...state,
-        customerApp: action.payload[0],
+        customerApp: action.payload,
         error: '',
         loading: false,
       }

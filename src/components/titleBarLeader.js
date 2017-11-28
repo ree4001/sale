@@ -11,7 +11,7 @@ class TitleBarLeader extends Component {
   render() {
     const cookies = new Cookies()
     const username = cookies.get('username')
-    const { title, status, submitLogout} = this.props
+    const { title, status, submitLogout, tabmenu} = this.props
     return (
       <div className="topbar">
         <Head>
@@ -21,7 +21,7 @@ class TitleBarLeader extends Component {
         <Link href="/login">
           <img className="position" src="/static/ITTP-201707.png" />
         </Link>
-        <MenuTab />
+        <MenuTab tabmenu={tabmenu}/>
         <Link href="/login">
           <div className="logout">
             <button onClick={submitLogout}> Logout </button>

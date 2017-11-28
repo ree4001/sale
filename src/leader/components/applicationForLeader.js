@@ -42,10 +42,8 @@ class ApplicationForLeader extends Component {
     fetchProduct({})
   }
   render() {
-    const { status, product, dateRange: { start, end } } = this.props
-    // console.log('date', SetFormatDate(dateRange.start,dateRange.end))
+    const { status, product, dateRange: { start, end }, tabmenu } = this.props
     let menuActive = status
-    // const currentStatus = ALL_STATUS
     let showlist
     if (status === ALL_STATUS || status === undefined) {
       menuActive = ALL_STATUS
@@ -79,7 +77,7 @@ class ApplicationForLeader extends Component {
           <link href="/static/griddle.css" rel="stylesheet" />
         </Head>
         <div className="header">
-          <TitleBarLeader title={salesevice} status={SALELOGIN} />
+          <TitleBarLeader title={salesevice} status={SALELOGIN} tabmenu={tabmenu}/>
         </div>
         <div className="content">
           <div className="header-content">

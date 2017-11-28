@@ -1,6 +1,5 @@
 import { put, call, select, takeLatest } from 'redux-saga/effects'
 import { getFormValues } from 'redux-form'
-import Cookies from 'universal-cookie'
 import Router from 'next/router'
 import { postJSON } from '../utils/api'
 import { API_SERVER_EXPRESS } from '../config'
@@ -52,7 +51,7 @@ export function* submitLogin(action) {
           successMsg: '',
         })
       if (json.rank === 'sale') { Router.push(`/summary`) }
-      else if (json.rank === 'leader') { Router.push(`/leader`) }
+      else if (json.rank === 'leader') { Router.push(`/leaderSummary`) }
     }
   } catch (err) {
     console.log(err)

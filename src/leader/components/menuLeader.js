@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const LeaderSale = (props) => {
   return(
-    <li>  
+    <li className={props.tabmenu === props.id? 'active':''} >  
       <Link href={`/${props.id}`}>
         <p>{props.menutitle}</p>
       </Link>

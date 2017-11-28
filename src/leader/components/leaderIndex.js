@@ -23,11 +23,12 @@ class LeaderIndex extends Component {
     fetchYrarSummary({})
   }
   render() {
-    const { leaderMonth, leaderYear } = this.props
+    const { leaderMonth, leaderYear, tabmenu } = this.props
+    console.log(tabmenu)
     return (
       <div className="wrapper">
         <div className="header">
-          <TitleBarLeader title={salesevice} status={SALELOGIN} />
+          <TitleBarLeader title={salesevice} status={SALELOGIN} tabmenu={tabmenu}/>
         </div>
         <div className="content">
           <div className="body-content">

@@ -2,10 +2,12 @@ import { connect } from 'react-redux'
 import CheckStatus from '../components/checkStatus'
 import { fetchCustomerApp } from '../../../reduxModules/customerApp'
 import { fetchProduct } from '../../../reduxModules/product'
+import checkIsArray from '../utils/CheckIsArray'
 
 const mapStateToProps = state => {
+  // console.log('mapState', state.customer.customerApp)
   return({
-    customer: state.customer.customerApp
+    customer: checkIsArray(state.customer.customerApp)
   })
 }
 

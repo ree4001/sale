@@ -46,7 +46,7 @@ class SaleSevice extends Component {
     fetchProduct({})
   }
   render() {
-    const { status, product, dateRange: { start, end } } = this.props
+    const { status, product, dateRange: { start, end }, tabmenu } = this.props
     // console.log('date', SetFormatDate(dateRange.start,dateRange.end))
     let menuActive = status
     // const currentStatus = ALL_STATUS
@@ -83,7 +83,7 @@ class SaleSevice extends Component {
           <link href="/static/griddle.css" rel="stylesheet" />
         </Head>
         <div className="header">
-          <TitleBar title={salesevice} status={SALELOGIN} />
+          <TitleBar title={salesevice} status={SALELOGIN} tabmenu={tabmenu}/>
         </div>
         <div className="content">
           <div className="header-content">

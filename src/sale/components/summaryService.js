@@ -15,7 +15,7 @@ import {
 
 class SummaryService extends Component {
   componentWillReceiveProps(nextProps) {
-    const { fetchCommission, dateRange: { month, year } } = this.props
+    const { fetchCommission, dateRange: { month, year }} = this.props
     if ((month !== nextProps.dateRange.month) || (year !== nextProps.dateRange.year)) {
       fetchCommission(nextProps.dateRange.month, nextProps.dateRange.year)
     }
@@ -26,7 +26,7 @@ class SummaryService extends Component {
     fetchSummaryApp()
   }
   render() {
-    const { application, commission, summary } = this.props
+    const { application, commission, summary, tabmenu } = this.props
     if (commission.extra_app === undefined || commission.non_extra_app === undefined) {
       const extra = application.filter(item => item.income >= 30000)
       const nonExtra = application.filter(item => item.income < 30000)
@@ -40,7 +40,7 @@ class SummaryService extends Component {
           <link href="/static/styles.css" rel="stylesheet" />
         </Head>
         <div className="header">
-          <TitleBar title={salesevice} status={SALELOGIN} />
+          <TitleBar title={salesevice} status={SALELOGIN} tabmenu={tabmenu}/>
         </div>
         <div className="content">
           <div className="body-content">

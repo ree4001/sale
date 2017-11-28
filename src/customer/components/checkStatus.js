@@ -4,8 +4,23 @@ import TableStatus from './tableStatus'
 import ProcessStep from './processStep'
 import { checkStatus } from '../../../text'
 import { CHECKSTATUS } from '../../../status'
+import ContacUs from './contactUs'
 
 class CheckStatus extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      select: 0,
+    }
+    // this.change = this.change.bind(this)
+    this.handleOptionChange = this.handleOptionChange.bind(this)
+  }
+  handleOptionChange(changeEvent) {
+    console.log('optionChange', changeEvent.target.value)
+    this.setState({
+      select: Number(changeEvent.target.value)
+    })
+  }
   componentDidMount() {
     const { fetchCustomerApp, fetchProduct } = this.props
     fetchProduct()
@@ -20,8 +35,15 @@ class CheckStatus extends Component {
         <div className="header">
           <TitleBarCustomer title={checkStatus} status={CHECKSTATUS} />
         </div>
-        <TableStatus customer={customer} />
-        <ProcessStep customer={customer} />
+        <div className="content">
+          <div className="body-content">
+            <TableStatus customer={customer} handleOptionChange={this.handleOptionChange} state={this.state.select} />
+            <ProcessStep customer={customer[this.state.select]} />
+          </div>
+        </div>
+        <div className="footer">
+            <ContacUs />
+          </div>
       </div>
     )
   }
