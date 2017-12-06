@@ -16,14 +16,13 @@ class CheckStatus extends Component {
     this.handleOptionChange = this.handleOptionChange.bind(this)
   }
   handleOptionChange(changeEvent) {
-    console.log('optionChange', changeEvent.target.value)
     this.setState({
       select: Number(changeEvent.target.value)
     })
   }
   componentDidMount() {
     const { fetchCustomerApp, fetchProduct } = this.props
-    fetchProduct()
+    // fetchProduct()
     fetchCustomerApp('1129700031389')
     // fetchCustomerApp('4131200009225')
     // fetchCustomerApp('1129700031389')    

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withReduxSaga } from '../store'
 import CheckStatus from '../src/customer/containers/checkStatus'
+import { requireAuthCustomer } from '../src/hoc/requireAuth'
 import {
   saleLogin,
   checkStatus,
@@ -13,4 +14,4 @@ class Index extends Component {
   }
 }
 
-export default withReduxSaga(Index)
+export default withReduxSaga(requireAuthCustomer(Index))

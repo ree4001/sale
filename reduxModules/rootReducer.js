@@ -10,6 +10,7 @@ import summaryReducer from './summary'
 import leaderSummaryReducer from './leader'
 import authReducer from './auth'
 import cookieReducer from './cookie'
+import otpAuthReducer from './otpAuth'
 
 const rootReducer = combineReducers({
   ui: uiReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   commission: commissionReducer,
   summary: summaryReducer,
   leader: leaderSummaryReducer,
-  cookie: cookieReducer
+  cookie: cookieReducer,
+  otpAuth: otpAuthReducer,
 })
 
 export default rootReducer

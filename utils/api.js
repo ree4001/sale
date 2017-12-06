@@ -1,11 +1,18 @@
 import { API_SERVER } from '../config'
+import Cookies from 'universal-cookie'
+
+const getAccessToken = () => {
+  const cookies = new Cookies()
+  const token = cookies.get('token')
+  return token
+}
 
 const getJSON = url => fetch(url, {
   method: 'GET',
   headers: {
     Accept: 'application/json',
     'Content-type': 'application/json',
-    Authorization: 'zIi9BviQcr4uPAswfNLB2cA8PHGAAOCIfgnong6g1iBxfvJ6U5JaA94bUPL31nSX',  
+    Authorization: `BEARER ${getAccessToken()}`,  
   },
 })
   .then(response => response.json())

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import Link from 'next/link'
 import { CHECKSTATUS } from '../../status'
-import { submitLogout }  from '../../reduxModules/auth'
+import { submitLogout }  from '../../reduxModules/otpAuth'
 
 class titleBarCustomer extends Component {
   render() {
@@ -20,9 +20,9 @@ class titleBarCustomer extends Component {
         <div className='customerHead'>
           <p> ตรวจสอบสถานะใบสมัคร </p>
         </div>
-        <Link href="/login">
+        <Link href="/loginByOtp">
           <div className="logout">
-            <button> Logout </button>
+            <button onClick={submitLogout}> Logout </button>
           </div>
         </Link>
       </div>
