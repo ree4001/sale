@@ -35,12 +35,11 @@ export const setYear = data => {
 
 const endDate = moment(new Date()).format('YYYY-MM-DD');
 const startDate = moment(endDate).add(-5, 'days').format('YYYY-MM-DD');
-
 const initialState = {
   start: startDate,
   end: endDate,
   month: '1',
-  year: '2017',
+  year: endDate.substring(0, 4),
   error: '',
   loading: false,
   successMsg: '',
