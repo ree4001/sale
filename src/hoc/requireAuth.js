@@ -15,7 +15,7 @@ export const requireAuthSale = (Component) => {
         token = cookies.get('token')
         rank = cookies.get('rank')
         username = cookies.get('username')
-        if (!token && !username) {
+        if ((!token || !username) || rank !== 'sale') {
           res.redirect('/login')
         }
       }
@@ -24,7 +24,8 @@ export const requireAuthSale = (Component) => {
         cookies = new Cookies()
         token = cookies.get('token')
         rank = cookies.get('rank')
-        if (!token && !username) {
+        username = cookies.get('username')
+        if ((!token || !username) || rank !== 'sale') {
           Router.push('/login')
         }
       }
@@ -45,7 +46,7 @@ export const requireAuthLeader = (Component) => {
         rank = cookies.get('rank')
         token = cookies.get('token')
         username = cookies.get('username')
-        if ((!token && !username) || rank !== 'leader') {
+        if ((!token || !username) || rank !== 'leader') {
           res.redirect('/login')
         }
       }
@@ -54,7 +55,8 @@ export const requireAuthLeader = (Component) => {
         cookies = new Cookies()
         token = cookies.get('token')
         rank = cookies.get('rank')
-        if ((!token && !username) || rank !== 'leader') {
+        username = cookies.get('username')
+        if ((!token || !username) || rank !== 'leader') {
           Router.push('/login')
         }
       }
@@ -68,12 +70,13 @@ export const requireAuthCustomer = (Component) => {
       return <Component {...this.props} />
     }
     static async getInitialProps({ req, res }) {
-      let token, cookies
+      let token, cookies, citizenId
       // Render from server
       if (req) {
         cookies = new Cookies(req.headers.cookie)
         token = cookies.get('token')
-        if (token === undefined) {
+        citizenId = cookies.get('citizenId')
+        if (token === undefined || citizenId === undefined) {
           res.redirect('/loginByOtp')
         }
       }
@@ -81,7 +84,8 @@ export const requireAuthCustomer = (Component) => {
       else {
         cookies = new Cookies()
         token = cookies.get('token')
-        if (token === undefined) {
+        citizenId = cookies.get('citizenId')
+        if (token === undefined || citizenId === undefined) {
           Router.push('/loginByOtp')
         }
       }

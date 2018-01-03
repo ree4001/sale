@@ -39,4 +39,4 @@ const getJSON = url => fetch(url, {
       return json
     })
 
-export { API_SERVER, getJSON, postJSON }
+export { API_SERVER, getJSON, postJSON, getAccessToken }

@@ -6,8 +6,8 @@ import { withRouter } from 'next/router'
 
 class SubmitOTP extends Component {
   constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
   }
   handleClick() {
     const { otpAuth, sendOtp } = this.props

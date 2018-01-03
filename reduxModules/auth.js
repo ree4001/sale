@@ -22,6 +22,7 @@ const initialState = {
   isLoggedIn: false,
   id: undefined,
   userID: undefined,
+  token: undefined,
   error: '',
   loading: false,
   successMsg: '',
@@ -38,20 +39,21 @@ const auth = (state = initialState, action) => {
       }
     }
     case SUBMIT_LOGIN_SUCCESS: {
-      const { id, username } = action.payload
+      const { id, username, token } = action.payload
       return {
         ...state,
         isLoggedIn: true,
         id: id,
         userID: username,
-        loading: false,
+        token: token,
+        loading: true,
       }
       break;
     }
     case SUBMIT_LOGIN_FAILED: {
       return {
         ...state,
-        loading: true,
+        loading: false,
         successMsg: action.successMsg,
       }
     }

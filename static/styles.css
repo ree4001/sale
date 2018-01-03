@@ -162,6 +162,11 @@ body {
   padding: 10px;
   font: 16px arial, sans-serif;
 }
+.topbar p.user{
+  float:right;
+  margin: 20px 20px;
+  color: gray
+}
 .center {
   align-content: center;
   width:100%;
@@ -174,7 +179,7 @@ body {
 /*----------------------- progressbar ---------------------*/
 .progressbar {
   width: 100%;
-  margin-top: 27%;
+  margin-top: 35%;
 }
 .progressbar ul{
   width: 100%
@@ -228,14 +233,22 @@ body {
   border-color: #74ac34; 
   /* border-color: #166EAD; */
 }
+.progressbar li.error {
+  color: #ff4d4d;
+}
 .progressbar li.error:before {
-  border-color: red;
+  content:url(cancel.png) ;
+  border: 3px solid #ff4d4d;
+}
+.progressbar li.nexterror{
+  color: #74ac34; 
 }
 .progressbar li.nexterror:before{
-  border-color: #166EAD;
+  content:url(success.png) ;
+  border-color: #74ac34; 
 }
 .progressbar li.nexterror + li:after {
-  background-color: red;
+  background-color: #ff4d4d;
 }
 .progressbar li.finish + li:after {
   background-color: #74ac34;
@@ -345,6 +358,14 @@ li.active p{
   text-align: center;
 }
 
+.summaryTitle p{
+  background-color: #166EAD;
+  width: 15%;
+  padding: 8px;
+  color: #fff;
+  border-radius: 15px;
+}
+
 .summary table {
   border-collapse: collapse;
   font-size: 15px;
@@ -421,7 +442,7 @@ li.active p{
   margin-top: 10px;
   width: 20%;    
 }
-.login button:hover{
+.login button.submit:hover{
   border-color: #166EAD;
   background-color: white;
   color: #166EAD
@@ -550,4 +571,9 @@ li.active p{
   border: 1px solid #5c5c8a;
   border-radius: 5px;
   width: 20%;    
+}
+
+.recharts-wrapper { 
+  margin: 0 auto;
+  width: 1100px;
 }

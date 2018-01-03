@@ -10,16 +10,11 @@ import {
   FETCH_YEAR_SUMMARY_SUCCESS,
   FETCH_YEAR_SUMMARY_FAILED
 } from '../reduxModules/leader'
+import getcookies from './util/getcookies'
 
-const getcookies = () => {
-  const cookies = new Cookies()
-  const username = cookies.get('username')
-  return (username)
-}
 export function* fetchYrarSummary(action) {
   const toYear = new Date()
   const leaderId = getcookies()
-  console.log('leaderId', leaderId)
   try {
     const dataSummaryInYear = yield call(getJSON, `${API_SERVER_EXPRESS}/commission/getByLeaderYear/${toYear.getFullYear()}/${leaderId}`)
     yield put({

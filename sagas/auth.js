@@ -44,7 +44,7 @@ export function* submitLogin(action) {
           payload: { key: 'rank', value: json.rank },
           successMsg: '',
         })
-      yield put(
+       yield put(
         {
           type: SUBMIT_LOGIN_SUCCESS,
           payload: json,

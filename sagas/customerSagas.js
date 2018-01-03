@@ -21,11 +21,9 @@ let appfilter = {
 export function* fetchCustomerApp(action) {
   try {
     let filter = ''
-    console.log('saga')
     appfilter.where.and[0].citizenId = `${action.payload}`
     filter = JSON.stringify(appfilter)
     const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/Customer/${filter}`)
-    console.log(json)
     yield put({
       type: FETCH_CUSTOMER_APP_SUCCESS,
       payload: json,

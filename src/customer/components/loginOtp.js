@@ -25,7 +25,7 @@ class OtpLoginPage extends Component {
                 <Field name="mobileNo" component="input" type="text" />
               </div>
               <div style={{ margin: '10px 10px 10px 10px', color: '#b30000' }}> {otpAuth.successMsg} </div>
-                <button type="submit">ส่งรหัส OTP</button>
+              <button className="submit" type="submit">ส่งรหัส OTP</button>
             </form>
           </div>
         </div>

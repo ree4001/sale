@@ -10,6 +10,7 @@
   export const checkApplication = 'อยู่ระหว่างการตรวจสอบข้อมูลและเอกสาร' 
   export const pendingApplication = 'อยู่ระหว่างพิจารณาสินเชื่อ'  
   export const approvedApplication = 'ได้รับการอนุมัติสินเชื่อเรียบร้อยแล้ว'
+  export const cancelApplication = 'ใบสมัครถูกปฏิเสธ'
   export const phonenumber = 'เบอร์ติดต่อ'
   export const salesevice = 'Salesevice'
   export const SUBMIT = 'ยืนยัน'

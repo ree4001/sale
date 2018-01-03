@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Head from 'next/head'
 import TitleBarLeader from '../../components/titleBarLeader'
 import { SALELOGIN } from '../../../status'
 import BarChart from './barChart'
@@ -24,17 +25,16 @@ class LeaderIndex extends Component {
   }
   render() {
     const { leaderMonth, leaderYear, tabmenu } = this.props
-    console.log(tabmenu)
     return (
       <div className="wrapper">
         <div className="header">
-          <TitleBarLeader title={salesevice} status={SALELOGIN} tabmenu={tabmenu}/>
+          <TitleBarLeader title={salesevice} status={SALELOGIN} tabmenu={tabmenu} />
         </div>
         <div className="content">
           <div className="body-content">
             <BarChart leaderYear={leaderYear} />
             <SummaryMonth leaderYear={leaderYear} />
-            <div style={{ margin: '0 auto 30px auto', display : 'table' }}>
+            <div style={{ margin: '0 auto 30px auto', display: 'table' }}>
               <SelectMontAndYear />
             </div>
             <LineChart leaderMonth={leaderMonth} />

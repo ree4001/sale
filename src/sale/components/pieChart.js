@@ -70,10 +70,11 @@ class PieChartSimple extends Component {
         { name: 'Reject', value: summary.reject[toDate.getMonth()].length },
         { name: 'Cancel', value: summary.cancel[toDate.getMonth()].length }
       ]
-    } 
+    }
     return (
       <PieChart width={550} height={400} >
         <Pie
+          dataKey="value"
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
           data={data}
@@ -83,11 +84,11 @@ class PieChartSimple extends Component {
           outerRadius={80}
           fill="#FDBF26"
           onMouseEnter={this.onPieEnter}
-          >
+        >
           {
-          	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            data.map((entry, index) => <Cell key={`${COLORS[index]}`} fill={COLORS[index % COLORS.length]} />)
           }
-          </Pie>
+        </Pie>
       </PieChart>
     )
   }

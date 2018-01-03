@@ -4,6 +4,7 @@ import TableStatus from './tableStatus'
 import ProcessStep from './processStep'
 import { checkStatus } from '../../../text'
 import { CHECKSTATUS } from '../../../status'
+import { getcookiesCitizenId } from '../../../sagas/util/getcookies'
 import ContacUs from './contactUs'
 
 class CheckStatus extends Component {
@@ -22,10 +23,9 @@ class CheckStatus extends Component {
   }
   componentDidMount() {
     const { fetchCustomerApp, fetchProduct } = this.props
+    console.log(getcookiesCitizenId())
     // fetchProduct()
-    fetchCustomerApp('1129700031389')
-    // fetchCustomerApp('4131200009225')
-    // fetchCustomerApp('1129700031389')    
+    fetchCustomerApp(getcookiesCitizenId()) 
   }
   render() {
     const { status, customer } = this.props

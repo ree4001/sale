@@ -9,8 +9,9 @@ import { submitLogout } from '../../reduxModules/auth'
 
 class TitleBarLeader extends Component {
   render() {
+    let username = ''
     const cookies = new Cookies()
-    const username = cookies.get('username')
+    username = cookies.get('username')
     const { title, status, submitLogout, tabmenu} = this.props
     return (
       <div className="topbar">
@@ -27,7 +28,7 @@ class TitleBarLeader extends Component {
             <button onClick={submitLogout}> Logout </button>
           </div>
         </Link>
-        <p style={{float:'right',margin: '20px 20px',color: 'gray'}}> {username} </p>
+        <p className="user"> {username} </p>
       </div>
     )
   }

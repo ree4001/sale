@@ -19,6 +19,8 @@ import {
   INCOMPLETE as STATUS_INCOMPLETE,
   CANCEL as STATUS_CANCEL
 } from '../status'
+import getcookies from './util/getcookies'
+
 
 let filterIncomplete = {
   where: {
@@ -141,11 +143,10 @@ let filterAll = {
   }
 }
 
-const cookies = new Cookies()
-const sale_id = cookies.get('username')
 
 export function* fetchApp(action) {
   // const SaleCode = 'b001'
+  const sale_id = getcookies()
   let dateStart = action.payload.start
   dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   let dateEnd = action.payload.end
@@ -207,6 +208,8 @@ export function* fetchApp(action) {
 }
 
 export function* fetchAppForLeader(action) {
+  const leaderId = getcookies()
+  console.log(leaderId)
   let dateStart = action.payload.start
   dateStart = moment(dateStart).format('YYYY-MM-DDTHH:mm:ss.000\\Z')
   let dateEnd = action.payload.end
@@ -246,7 +249,7 @@ export function* fetchAppForLeader(action) {
         break;
       }
     }
-    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/leader/${action.payload.status}/${expressfilter}/${sale_id}`)
+    const json = yield call(getJSON, `${API_SERVER_EXPRESS}/applications/leader/${action.payload.status}/${expressfilter}/${leaderId}`)
     yield put({
       type: FETCH_APP_FOR_LEADER_SUCCESS,
       payload: json,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
+import { Mapstep } from '../utils/MapStatus' 
 import {
   TRANSFERRED,
   FILLFORM,
@@ -8,12 +9,14 @@ import {
   WAIT_APPROVE,
   WAIT_CONFIRM,
   WAIT_TRANSFER,
+  REJECTED,
 } from '../../../status'
 import {
   getApplication,
   checkApplication,
   pendingApplication,
   approvedApplication,
+  cancelApplication
 } from '../../../text'
 
 class ProcessStep extends Component {
@@ -28,24 +31,10 @@ class ProcessStep extends Component {
         { customer
           ? (
             <ul>
-            <li className={
-              customer.status === FILLFORM ||
-              customer.status === WAIT_VERIFY ||
-              customer.status === WAIT_ANALYST ||
-              customer.status === WAIT_APPROVE ||
-              customer.status === WAIT_CONFIRM ||
-              customer.status === TRANSFERRED ||
-              customer.status === WAIT_TRANSFER ? 'finish' : 'wait'
-            } > {getApplication} </li>
-            <li className={
-              customer.status === WAIT_VERIFY ||
-              customer.status === WAIT_ANALYST ||
-              customer.status === WAIT_APPROVE ||
-              customer.status === WAIT_CONFIRM ||
-              customer.status === TRANSFERRED ||
-              customer.status === WAIT_TRANSFER ? 'finish' : 'wait'
-            }> {checkApplication} </li>
-            <li className={ customer.status === TRANSFERRED ? 'finish' : 'wait'}> {approvedApplication} </li>
+            <li className={Mapstep(customer.status, 1)}> {getApplication} </li>
+            <li className={Mapstep(customer.status, 2)}> {checkApplication} </li>
+            <li className={ Mapstep(customer.status, 3)}> 
+            {customer.status === REJECTED ? cancelApplication: approvedApplication} </li>
           </ul>
           )
           : null
@@ -55,20 +44,5 @@ class ProcessStep extends Component {
   }
 }
 
-// const ProcessStep = (customer) => {
-//   console.log(customer.customer.status)
-//   return (
-//     <div className="container_progressbar">
-//       <Head>
-//         <link href="/static/styles.css" rel="stylesheet" />
-//       </Head>
-//       <ul className="progressbar">
-//         <li className="finish"> {getApplication} </li>
-//         <li className="finish"> {checkApplication} </li>
-//         <li className="wait"> {approvedApplication} </li>
-//       </ul>
-//     </div>
-//   )
-// }
 
 export default ProcessStep

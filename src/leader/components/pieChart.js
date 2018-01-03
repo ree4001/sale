@@ -75,6 +75,7 @@ class PieChartSimple extends Component {
       <div>
         <PieChart width={550} height={400} >
           <Pie
+            dataKey="value"
             activeIndex={this.state.activeIndex}
             activeShape={renderActiveShape}
             data={data}
@@ -85,9 +86,9 @@ class PieChartSimple extends Component {
             fill="#8884d8"
             onMouseEnter={this.onPieEnter}
           >
-          {
-          	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-          }
+            {
+              data.map((entry, index) => <Cell key={`${COLORS[index]}`} fill={COLORS[index % COLORS.length]} />)
+            }
           </Pie>
         </PieChart>
       </div>

@@ -8,7 +8,7 @@ class PeiSummary extends Component {
     let { summary } = this.props
     return (
       <div>
-        <div>
+        <div className="summaryTitle">
           <center>
             <p> ข้อมูลสรุปรายเดือน </p>
           </center>

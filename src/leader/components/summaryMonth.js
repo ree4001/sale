@@ -7,7 +7,7 @@ class SummaryMonth extends Component {
     let { leaderYear } = this.props
     return (
       <div>
-        <div>
+        <div className="summaryTitle">
           <center>
             <p> ข้อมูลสรุปรายเดือน </p>
           </center>

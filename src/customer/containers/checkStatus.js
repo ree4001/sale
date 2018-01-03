@@ -5,7 +5,6 @@ import { fetchProduct } from '../../../reduxModules/product'
 import checkIsArray from '../utils/CheckIsArray'
 
 const mapStateToProps = state => {
-  // console.log('mapState', state.customer.customerApp)
   return({
     customer: checkIsArray(state.customer.customerApp)
   })

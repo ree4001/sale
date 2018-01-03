@@ -32,9 +32,9 @@ const getCitizenId = (state) => {
 
 export function* submitLogin(action) {
   try {
-    const rejectedComment = yield select(getCitizenId)
+    const citizenId = yield select(getCitizenId)
     const dataToSend = {
-      citizenId: rejectedComment,
+      citizenId: citizenId,
       otp: action.payload.OTP
     }
     const json = yield call(postJSON, `${API_SERVER_EXPRESS}/loginByOtp`, dataToSend)
@@ -43,6 +43,18 @@ export function* submitLogin(action) {
         {
           type: SET_COOKIE,
           payload: { key: 'token', value: json.token },
+          successMsg: '',
+        })
+      yield put(
+        {
+          type: SET_COOKIE,
+          payload: { key: 'citizenId', value: json.citizenId },
+          successMsg: '',
+        })
+      yield put(
+        {
+          type: SET_COOKIE,
+          payload: { key: 'usename', value: json.usename },
           successMsg: '',
         })
       yield put(
@@ -103,15 +115,24 @@ export function* submitGetotp(action) {
         })
     } else {
       const json = yield call(postJSON, `${API_SERVER_EXPRESS}/getOtp`, action.payload)
-      yield put(
-        {
-          type: GET_OTP_SUCCESS,
-          payload: {
-            citizenID: action.payload.citizenId,
-            mobileNo: action.payload.mobileNo
-          },
-          successMsg: '',
-        })
+      if (json.status === 401) {
+        yield put(
+          {
+            type: GET_OTP_FAILED,
+            successMsg: 'ไม่พบผู้ใช้ในระบบ',
+          }
+        )
+      } else {
+        yield put(
+          {
+            type: GET_OTP_SUCCESS,
+            payload: {
+              citizenID: action.payload.citizenId,
+              mobileNo: action.payload.mobileNo
+            },
+            successMsg: '',
+          })
+      }
     }
   } catch (err) {
     console.log(err)
@@ -126,6 +147,12 @@ export function* submitLogout(action) {
       {
         type: REMOVE_COOKIE,
         payload: 'token',
+        successMsg: '',
+      })
+    yield put(
+      {
+        type: REMOVE_COOKIE,
+        payload: 'citizenId',
         successMsg: '',
       })
     yield put({

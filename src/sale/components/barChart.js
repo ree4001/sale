@@ -24,7 +24,7 @@ class BarChartSimple extends Component {
 
     return (
       <div>
-        <div>
+        <div className="summaryTitle">
           <center>
             <p> ข้อมูลสรุปรายปี </p>
           </center>
@@ -39,12 +39,6 @@ class BarChartSimple extends Component {
           <Bar dataKey="Approve" fill="#82ca9d" />
           <Bar dataKey="Cancel" fill="#FDBF26" />
         </BarChart>
-        <style jsx global>{`
-      .recharts-wrapper { 
-        margin: 0 auto;
-        width: 1100px;
-      }
-    `}</style>
       </div>
     )
   }

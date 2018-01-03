@@ -10,8 +10,8 @@ const SaleListSummary = summary => {
   let approve = 0
   let commission = 0
   data = summary.summary
-  const listItem = data.map((item) =>
-    <tr>
+  const listItem = data.map((item, index) =>
+    <tr key={index}>
       <td> {item.name} </td>
       <td> {item.Approve} </td>
       <td> {item.Extra} </td>
